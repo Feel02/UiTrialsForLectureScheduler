@@ -6,12 +6,21 @@ import {
 
 import "../html2pdf.js/dist/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+import { html2pdf } from "../html2pdf.js/dist/html2pdf.bundle.min.js";
 
 const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
     var element = document.getElementById('body');
+
+    var opt = {
+        margin:       1,
+        filename:     'filename2.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
 
     html2pdf().from(element).save('filename.pdf');
 
@@ -25,6 +34,7 @@ btn.addEventListener("click", function(){
         }
     }).save('filename1.pdf');
 
+    html2pdf().set(opt).from(element).save();
 
 
 });
