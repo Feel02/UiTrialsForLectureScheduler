@@ -11,20 +11,25 @@ table > caption {
     font-size: larger;
 }
 
-tbody > .overflow-cell {                            /*tbody > .overflow-cell*/
+tbody > tr {                            /*tbody > .overflow-cell*/
+    overflow: visible;
     background-color: #eaf1dd;
 }
-tbody > .overflow-cell:nth-child(n + 10) {
+tbody > tr:nth-child(n + 10) {
+    overflow: visible;
     background-color: #e5dfec;
 }
-tbody > .overflow-cell:nth-child(n + 19) {
+tbody > tr:nth-child(n + 19) {
+    overflow: visible;
     background-color: #fde9d9;
 }
 
-tbody > .overflow-cell:nth-child(n + 28) {
+tbody > tr:nth-child(n + 28) {
+    overflow: visible;
     background-color: #dbe5f1;
 }
-tbody > .overflow-cell:nth-child(n + 37) {
+tbody > tr:nth-child(n + 37) {
+    overflow: visible;
     background-color: #f2dbdb;
 }
 
