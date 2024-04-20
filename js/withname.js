@@ -22,6 +22,11 @@ btn.addEventListener("click", function(){
         jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
       };
 
+    
+    for (var i = 0, max = element.length; i < max; i++) {
+        element[i].style.backgroundColor = "blue";
+    }
+
     //html2pdf().from(element).save('filename.pdf');
 
     /*html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {

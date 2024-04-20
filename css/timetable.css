@@ -1,4 +1,4 @@
-table{
+table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 98%;
@@ -11,20 +11,20 @@ table > caption {
     font-size: larger;
 }
 
-tbody > .overflow-cell {                        /*tr*/
+tbody > tr {
     background-color: #eaf1dd;
 }
-tbody > .overflow-cell:nth-child(n + 10) {
+tbody > tr:nth-child(n + 10) {
     background-color: #e5dfec;
 }
-tbody > .overflow-cell:nth-child(n + 19) {
+tbody > tr:nth-child(n + 19) {
     background-color: #fde9d9;
 }
 
-tbody > .overflow-cell:nth-child(n + 28) {
+tbody > tr:nth-child(n + 28) {
     background-color: #dbe5f1;
 }
-tbody > .overflow-cell:nth-child(n + 37) {
+tbody > tr:nth-child(n + 37) {
     background-color: #f2dbdb;
 }
 
@@ -45,8 +45,4 @@ tbody > .overflow-cell:nth-child(n + 37) {
     color: #fff;
     width: 50%;
     height: 60px;
-}
-
-.overflow-cell {
-    overflow: visible;
 }
