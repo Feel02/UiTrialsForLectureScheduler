@@ -4,14 +4,14 @@ import {
     TableTemplate,
 } from "../templates/templates.js";
 
-import * as html2pdf from "../html2pdf.js/dist/html2pdf.bundle.min.js";
+import * as asdf from "../html2pdf.js/dist/html2pdf.bundle.min.js";
 
 const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
     var element = document.getElementById('body');
-    html2pdf().from(element).save('filename.pdf');
+    asdf.from(element).save('filename.pdf');
 });
 
 export function mergeTableCells(data) {
