@@ -1,4 +1,4 @@
-table {
+table{
     border-collapse: collapse;
     table-layout: fixed;
     width: 98%;
@@ -11,7 +11,7 @@ table > caption {
     font-size: larger;
 }
 
-tbody > tr {
+tbody > tr > .overflow-cell{
     background-color: #eaf1dd;
 }
 tbody > tr:nth-child(n + 10) {
@@ -47,3 +47,6 @@ tbody > tr:nth-child(n + 37) {
     height: 60px;
 }
 
+.overflow-cell {
+    overflow: visible;
+}
