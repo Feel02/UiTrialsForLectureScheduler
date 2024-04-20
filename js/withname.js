@@ -18,7 +18,7 @@ btn.addEventListener("click", function(){
         filename:     'filename2.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
       };
 
     html2pdf().from(element).save('filename.pdf');
