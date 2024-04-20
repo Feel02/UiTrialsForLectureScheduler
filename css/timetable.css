@@ -4,6 +4,7 @@ table {
     width: 98%;
     text-align: center;
     margin: 32px auto;
+    overflow-wrap:visible;
 }
 
 table > caption {
@@ -11,26 +12,26 @@ table > caption {
     font-size: larger;
 }
 
-tbody > tr {                            /*tbody > .overflow-cell*/
-    overflow: visible;
+tbody > tr {
     background-color: #eaf1dd;
+    overflow:visible;
 }
 tbody > tr:nth-child(n + 10) {
-    overflow: visible;
     background-color: #e5dfec;
+    overflow:visible;
 }
 tbody > tr:nth-child(n + 19) {
-    overflow: visible;
     background-color: #fde9d9;
+    overflow:visible;
 }
 
 tbody > tr:nth-child(n + 28) {
-    overflow: visible;
     background-color: #dbe5f1;
+    overflow:visible;
 }
 tbody > tr:nth-child(n + 37) {
-    overflow: visible;
     background-color: #f2dbdb;
+    overflow:visible;
 }
 
 .header {

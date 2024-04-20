@@ -4,6 +4,7 @@ import {
     TableTemplate,
 } from "../templates/templates.js";
 
+import "../html2pdf.js/dist/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 
 const btn = document.getElementById("button1111");
@@ -11,7 +12,7 @@ const btn = document.getElementById("button1111");
 btn.addEventListener("click", function(){
     console.log("clicked");
     var element = document.getElementById('tt');                  //tt for only the tables   
-        
+    element.classList.add('overflow-cell');     
 
     var opt = {
         margin:       1,
