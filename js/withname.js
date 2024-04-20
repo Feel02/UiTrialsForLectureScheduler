@@ -4,7 +4,6 @@ import {
     TableTemplate,
 } from "../templates/templates.js";
 
-import "../html2pdf.js/dist/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 
 const btn = document.getElementById("button1111");
@@ -21,11 +20,6 @@ btn.addEventListener("click", function(){
         pagebreak: {mode: 'avoid-all'},
         jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
       };
-
-    
-    for (var i = 0, max = element.length; i < max; i++) {
-        element[i].style.backgroundColor = "blue";
-    }
 
     //html2pdf().from(element).save('filename.pdf');
 

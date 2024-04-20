@@ -13,19 +13,24 @@ table > caption {
 
 tbody > tr {
     background-color: #eaf1dd;
+    overflow-wrap:visible;
 }
 tbody > tr:nth-child(n + 10) {
     background-color: #e5dfec;
+    overflow-wrap:visible;
 }
 tbody > tr:nth-child(n + 19) {
     background-color: #fde9d9;
+    overflow-wrap:visible;
 }
 
 tbody > tr:nth-child(n + 28) {
     background-color: #dbe5f1;
+    overflow-wrap:visible;
 }
 tbody > tr:nth-child(n + 37) {
     background-color: #f2dbdb;
+    overflow-wrap:visible;
 }
 
 .header {
