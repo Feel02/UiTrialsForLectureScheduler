@@ -19,7 +19,7 @@ btn.addEventListener("click", function(){
         image:        { type: 'jpeg', quality: 0.99 },
         html2canvas:  { scale:1, dpi:192},
         pagebreak: {mode: 'avoid-all'},
-        jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'}
+        jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
       };
 
     //html2pdf().from(element).save('filename.pdf');
