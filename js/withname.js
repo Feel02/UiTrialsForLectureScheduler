@@ -11,7 +11,7 @@ const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
-    var element = document.getElementById('body');
+    var element = document.getElementById('tt');
 
     var opt = {
         margin:       1,
@@ -72,7 +72,7 @@ export function renderTable(tableData, department) {
                 if (tableData[d][s][g].span > 0) {
                     let slot = SlotTemplate.replace(
                         `r$CourseName`,
-                        tableData[d][s][g].name + Char(10),",br/>"
+                        tableData[d][s][g].name + "<br>" 
                         + (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "")
                     );
                     slot = slot.replace(`r$Classroom`, tableData[d][s][g].room);
