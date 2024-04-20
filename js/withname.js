@@ -16,14 +16,15 @@ btn.addEventListener("click", function(){
     var opt = {
         margin:       1,
         filename:     'filename2.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+        image:        { type: 'jpeg', quality: 0.99 },
+        html2canvas:  { scale:1, dpi:192},
+        pagebreak: {mode: 'avoid-all'},
+        jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'}
       };
 
-    html2pdf().from(element).save('filename.pdf');
+    //html2pdf().from(element).save('filename.pdf');
 
-    html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
+    /*html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
         var totalPages = pdf.internal.getNumberOfPages();
         for (var i = 1; i <= totalPages; i++) {
             pdf.setPage(i);
@@ -31,10 +32,9 @@ btn.addEventListener("click", function(){
             pdf.setTextColor(150);
             pdf.text('Page ' + i + ' of ' + totalPages, pdf.internal.pageSize.getWidth() - 30, pdf.internal.pageSize.getHeight() - 10);
         }
-    }).save('filename1.pdf');
+    }).save('filename1.pdf');*/
 
     html2pdf().set(opt).from(element).save();
-
 
 });
 
