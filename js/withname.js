@@ -4,7 +4,7 @@ import {
     TableTemplate,
 } from "../templates/templates.js";
 
-import * as html2pdf from "../html2pdf.js/dist/html2pdf.bundle.js";
+import * as html2pdf from "../html2pdf.js/dist/html2pdf.bundle.min.js";
 
 const btn = document.getElementById("button1111");
 
