@@ -5,11 +5,12 @@ import {
 } from "../templates/templates.js";
 
 const html2pdf = require('html2pdf.js');
-const btn = document.getElementById("button");
+const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
-var element = document.getElementById('body');
-html2pdf.html2pdf().from(element).save('filename.pdf');
+    console.log("clicked");
+    var element = document.getElementById('body');
+    html2pdf.html2pdf().from(element).save('filename.pdf');
 });
 
 export function mergeTableCells(data) {
