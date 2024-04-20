@@ -46,3 +46,10 @@ tbody > tr:nth-child(n + 37) {
     width: 50%;
     height: 60px;
 }
+
+.slot {
+    height: auto; /* Ensure slots can expand vertically */
+    white-space: normal; /* Allow content to wrap within slots */
+    padding: 5px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Add borders for better visibility */
+}

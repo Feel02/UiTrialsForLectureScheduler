@@ -11,7 +11,7 @@ const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
-    var element = document.getElementById('tt');
+    var element = document.getElementById('tt');                  //tt for only the tables        
 
     var opt = {
         margin:       1,
@@ -48,7 +48,6 @@ export function mergeTableCells(data) {
                             data[day][slot + i][grade].span = 0;
                         } catch (e) {
                             console.log(e);
-                            console.log((data[day][slot + i][grade].span = 0));
                         }
                     }
                 }
@@ -72,11 +71,12 @@ export function renderTable(tableData, department) {
                 if (tableData[d][s][g].span > 0) {
                     let slot = SlotTemplate.replace(
                         `r$CourseName`,
-                        tableData[d][s][g].name + "<br>" 
-                        + (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "")
+                        tableData[d][s][g].name + "<br>" +
+                        (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "")
                     );
                     slot = slot.replace(`r$Classroom`, tableData[d][s][g].room);
                     slot = slot.replaceAll(`r$Span`, tableData[d][s][g].span);
+                    slot = slot.replace(`<td>`, `<td class="slot">`); // Add the slot class
                     row += slot;
                 }
             }
