@@ -11,9 +11,8 @@ const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
-    var element = document.getElementById('tt');                  //tt for only the tables   
-    element.classList.add('overflow-cell');     
-
+    var element = document.getElementById('tt');                  //tt for only the tables       
+    element.classList.replace("tbody", "overflow-cell");
     var opt = {
         margin:       1,
         filename:     'filename2.pdf',

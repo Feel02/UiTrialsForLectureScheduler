@@ -12,24 +12,24 @@ table > caption {
     font-size: larger;
 }
 
-tbody > tr > .overflow-cell{
+tbody > tr {
     background-color: #eaf1dd;
     overflow:visible;
 }
-tbody > tr:nth-child(n + 10) > .overflow-cell{
+tbody > tr:nth-child(n + 10) {
     background-color: #e5dfec;
     overflow:visible;
 }
-tbody > tr:nth-child(n + 19) > .overflow-cell{
+tbody > tr:nth-child(n + 19) {
     background-color: #fde9d9;
     overflow:visible;
 }
 
-tbody > tr:nth-child(n + 28) > .overflow-cell{
+tbody > tr:nth-child(n + 28) {
     background-color: #dbe5f1;
     overflow:visible;
 }
-tbody > tr:nth-child(n + 37) > .overflow-cell{
+tbody > tr:nth-child(n + 37) {
     background-color: #f2dbdb;
     overflow:visible;
 }
