@@ -11,7 +11,7 @@ const btn = document.getElementById("button1111");
 btn.addEventListener("click", function(){
     console.log("clicked");
     var element = document.getElementById('body');
-    html2pdf.html2pdf().from(element).save('filename.pdf');
+    html2pdf().from(element).save('filename.pdf');
 });
 
 export function mergeTableCells(data) {
