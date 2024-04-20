@@ -11,7 +11,7 @@ table > caption {
     font-size: larger;
 }
 
-tbody > .overflow-cell > tr {
+tbody > tr > .overflow-cell{
     background-color: #eaf1dd;
 }
 tbody > tr:nth-child(n + 10) {
@@ -47,6 +47,6 @@ tbody > tr:nth-child(n + 37) {
     height: 60px;
 }
 
-.overflow-cell {
-    overflow: visible;
+tbody .overflow-cell {
+    background-color: #eaf1dd;
 }
