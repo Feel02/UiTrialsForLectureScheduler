@@ -71,10 +71,8 @@ export function renderTable(tableData, department) {
                 if (tableData[d][s][g].span > 0) {
                     let slot = SlotTemplate.replace(
                         `r$CourseName`,
-                        '<div class="slot">' + 
-                            tableData[d][s][g].name + "<br>" +
-                            (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "") +
-                        '</div>'
+                        tableData[d][s][g].name + "<br>" 
+                        + (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "")
                     );
                     slot = slot.replace(`r$Classroom`, tableData[d][s][g].room);
                     slot = slot.replaceAll(`r$Span`, tableData[d][s][g].span);
