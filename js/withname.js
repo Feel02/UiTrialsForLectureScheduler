@@ -71,12 +71,13 @@ export function renderTable(tableData, department) {
                 if (tableData[d][s][g].span > 0) {
                     let slot = SlotTemplate.replace(
                         `r$CourseName`,
-                        tableData[d][s][g].name + "<br>" +
-                        (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "")
+                        '<div class="slot">' + 
+                            tableData[d][s][g].name + "<br>" +
+                            (tableData[d][s][g].lecturer != null ? tableData[d][s][g].lecturer : "") +
+                        '</div>'
                     );
                     slot = slot.replace(`r$Classroom`, tableData[d][s][g].room);
                     slot = slot.replaceAll(`r$Span`, tableData[d][s][g].span);
-                    slot = slot.replace(`<td>`, `<td class="slot">`); // Add the slot class
                     row += slot;
                 }
             }
