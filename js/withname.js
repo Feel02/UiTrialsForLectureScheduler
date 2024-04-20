@@ -4,6 +4,14 @@ import {
     TableTemplate,
 } from "../templates/templates.js";
 
+const html2pdf = require('html2pdf.js');
+const btn = document.getElementById("button");
+
+btn.addEventListener("click", function(){
+var element = document.getElementById('body');
+html2pdf.html2pdf().from(element).save('filename.pdf');
+});
+
 export function mergeTableCells(data) {
     for (let day = 0; day < 5; day++) {
         for (let slot = 0; slot < 9; slot++) {
