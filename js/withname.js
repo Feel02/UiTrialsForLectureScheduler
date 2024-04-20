@@ -13,8 +13,6 @@ btn.addEventListener("click", function(){
     console.log("clicked");
     var element = document.getElementById('body');
 
-    html2pdf.from(element).save('filename.pdf');
-
     html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
         var totalPages = pdf.internal.getNumberOfPages();
         for (var i = 1; i <= totalPages; i++) {
