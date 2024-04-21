@@ -10,7 +10,7 @@ btn.addEventListener("click", function(){
 
     var opt = {
         margin:       1,
-        filename:     'filename2.pdf',
+        filename:     'teacherNames.pdf',
         image:        { type: 'jpeg', quality: 0.99 },
         html2canvas:  { scale:1, dpi:192},
         pagebreak: {mode: 'avoid-all'},

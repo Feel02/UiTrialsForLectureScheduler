@@ -1,6 +1,38 @@
 let classes = {};
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
+import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+const btn = document.getElementById("button1113");
+
+btn.addEventListener("click", function(){
+    console.log("clicked");
+    var element = document.getElementById('body3');                  //tt for only the tables           
+
+    var opt = {
+        margin:       1,
+        filename:     'regularTable.pdf',
+        image:        { type: 'jpeg', quality: 0.99 },
+        html2canvas:  { scale:1, dpi:192},
+        pagebreak: {mode: 'avoid-all'},
+        jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
+      };
+
+    //html2pdf().from(element).save('filename.pdf');
+
+    /*html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
+        var totalPages = pdf.internal.getNumberOfPages();
+        for (var i = 1; i <= totalPages; i++) {
+            pdf.setPage(i);
+            pdf.setFontSize(10);
+            pdf.setTextColor(150);
+            pdf.text('Page ' + i + ' of ' + totalPages, pdf.internal.pageSize.getWidth() - 30, pdf.internal.pageSize.getHeight() - 10);
+        }
+    }).save('filename1.pdf');*/
+
+    html2pdf().set(opt).from(element).save();
+
+});
+
 export function mergeTableCells(data, department) {
     for (let day = 0; day < 5; day++) {
         for (let slot = 0; slot < 9; slot++) {
