@@ -6,7 +6,7 @@ const btn = document.getElementById("button1112");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
-    var element = document.getElementById('tt');                  //tt for only the tables           
+    var element = document.getElementById('body2');                  //tt for only the tables           
 
     var opt = {
         margin:       1,
