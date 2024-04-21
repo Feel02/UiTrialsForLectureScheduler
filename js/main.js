@@ -4,6 +4,10 @@ import {
     TableTemplate,
 } from "../templates/templates.js";
 
+import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
+import "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
+
 const btn = document.getElementById("button1114");
 
 btn.addEventListener("click", function(){
@@ -32,6 +36,25 @@ btn.addEventListener("click", function(){
     }).save('filename1.pdf');*/
 
     html2pdf().set(opt).from(element).save();
+
+});
+
+const btn2 = document.getElementById("button1124");
+
+btn2.addEventListener("click", function(){
+    console.log("clicked");
+    var wb = XLSX.utils.book_new();
+
+    const departmentss = new Map(JSON.parse(localStorage.getItem('tableData')));
+    departmentss.forEach((dep, name) => {
+        sortTable(dep.data,wb);  
+    });
+
+    // Convert the workbook to an Excel file (blob)
+    var wbBlob = XLSX.write(wb, { type: 'blob', bookType: 'xlsx' });
+
+    // Save the Excel file using FileSaver
+    saveAs(wbBlob, 'output.xlsx');
 
 });
 
@@ -85,8 +108,22 @@ export function renderTable(tableData, department) {
     document.getElementById("tt").innerHTML += table;
 }
 
+export function sortTable(data,wb){
+    data.sort(function (a, b) {
+        // Sort by department, then year, then day, then start hour
+        if (parseInt(a[5]) !== parseInt(b[5])) return parseInt(a[5]) - parseInt(b[5]); // Compare year
+        if (parseInt(a[1]) !== parseInt(b[1])) return parseInt(a[1]) - parseInt(b[1]); // Compare day
+        return parseInt(a[2]) - parseInt(b[2]); // Compare start hour
+    });
+    // Convert to Worksheet
+    var ws = XLSX.utils.aoa_to_sheet(data);
+    // Add the worksheet to the workbook
+    XLSX.utils.book_append_sheet(wb, ws, 'Courses');
+}
+
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 departments.forEach((dep, name) => {
     mergeTableCells(dep.data);
-    renderTable(dep.data, name);
+    renderTable(dep.data, name);    
 });
+
