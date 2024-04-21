@@ -4,10 +4,9 @@ table {
     width: 98%;
     text-align: center;
     margin: 32px auto;
-    overflow-wrap:visible;
 }
 
-table > caption {
+/* table > caption {
     font-weight: bold;
     font-size: larger;
 }
@@ -32,7 +31,7 @@ tbody > tr:nth-child(n + 28) > .overflow-cell{
 tbody > tr:nth-child(n + 37) > .overflow-cell{
     background-color: #f2dbdb;
     overflow:visible;
-}
+} */
 
 .header {
     display: flex;
@@ -55,4 +54,24 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
 
 .overflow-cell {
     overflow: visible;
+}
+
+.overflow-cell-green {
+    background-color: #eaf1dd;
+}
+
+.overflow-cell-purple {
+    background-color: #e5dfec;
+}
+
+.overflow-cell-orange {
+    background-color: #fde9d9;
+}
+
+.overflow-cell-blue {
+    background-color: #dbe5f1;
+}
+
+.overflow-cell-red {
+    background-color: #f2dbdb;
 }

@@ -77,6 +77,7 @@ export function renderTable(tableData, department) {
                     );
                     slot = slot.replace(`r$Classroom`, tableData[d][s][g].room);
                     slot = slot.replaceAll(`r$Span`, tableData[d][s][g].span);
+                    slot = applyColorClasses(slot, d, s, g); // Add color classes
                     row += slot;
                 }
             }
@@ -88,6 +89,25 @@ export function renderTable(tableData, department) {
     table = table.replace("r$Department", department);
     document.getElementById("tt").innerHTML += table;
 }
+
+function applyColorClasses(slot, day, slotIndex, gradeIndex) {
+    // Add appropriate class based on day and slot index
+    if (day >= 0 && day < 9) {
+        const rowIndex = day * 9 + slotIndex;
+        const colorIndex = Math.floor(rowIndex / 9);
+        const colorClasses = [
+            "overflow-cell", // default color
+            "overflow-cell-green",
+            "overflow-cell-purple",
+            "overflow-cell-orange",
+            "overflow-cell-blue",
+            "overflow-cell-red",
+        ];
+        return slot.replace(`class="overflow-cell"`, `class="${colorClasses[colorIndex]}"`);
+    }
+    return slot;
+}
+
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 departments.forEach((dep, name) => {
