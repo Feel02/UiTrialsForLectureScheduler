@@ -16,11 +16,13 @@ thead {
 tr:nth-child(2n) {
     background-color: rgb(202, 202, 250);
     height: 25px;
+    overflow: visible;
 }
 
 tr:nth-child(2n + 1) {
     background-color: rgb(246, 246, 206);
     height: 25px;
+    overflow: visible;
 }
 
 .header {
