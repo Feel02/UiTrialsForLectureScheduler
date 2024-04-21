@@ -7,6 +7,8 @@ import {
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
+import * as FileSaver from "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js";
+import { saveAs } from "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
 
 const btn = document.getElementById("button1114");
 
@@ -55,6 +57,8 @@ btn2.addEventListener("click", function(){
 
     // Save the Excel file using FileSaver
     saveAs(wbBlob, 'output.xlsx');
+
+    FileSaver.saveAs(wbBlob, 'output.xlsx');
 
 });
 
