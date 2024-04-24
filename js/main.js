@@ -127,14 +127,14 @@ export function sortTable(data){
 
         for(let k = 1; k < data.length-i; k++) {
 
-            const myArrayA = data[k].split(',');
+            const myArrayA = data[k].split(',').split(':')[1];
             console.log(myArrayA);
             const grade1 = parseInt(myArrayA[5]);
             const day1 = parseInt(myArrayA[3]);
             const time1 = parseInt(myArrayA[4]);
             const department1 = myArrayA[6];
 
-            const myArrayB = data[k+1].split(',');
+            const myArrayB = data[k+1].split(',').split(':')[1];
             console.log(myArrayB);
             const grade2 = parseInt(myArrayB[5]);
             const day2 = parseInt(myArrayB[3]);
