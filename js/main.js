@@ -41,7 +41,7 @@ btn.addEventListener("click", function(){
     }).save('filename1.pdf');*/
 
     html2pdf().set(opt).from(element).save();
-    btn.style.display="visible";
+    btn.style.visibility="visible";
     btn2.style.visibility="visible";
 });
 
