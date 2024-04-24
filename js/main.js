@@ -113,55 +113,56 @@ export function renderTable(tableData, department) {
     document.getElementById("tt").innerHTML += table;
 }
 
+export function swap(data, i, j) {
+    let temp = data[i];
+    data[i] = data[j];
+    data[j] = temp;
+}
+
 export function sortTable(data){
 
     console.log(data);
 
     for (let i = 1; i < data.length; i++) {
 
-        console.log('bvdahbsdvsbdv');
+        for(let k = 1; k < data.length-i; k++) {
 
-        const myArrayA = data[i].split(",");
+            const myArrayA = data[k].split(",");
+            const grade1 = parseInt(myArrayA['grade']);
+            const day1 = parseInt(myArrayA['day']);
+            const time1 = parseInt(myArrayA['time']);
+            const department1 = myArrayA['department'];
 
-        const grade = parseInt(myArrayA['grade']);
+            const myArrayB = data[k+1].split(",");
+            const grade2 = parseInt(myArrayB['grade']);
+            const day2 = parseInt(myArrayB['day']);
+            const time2 = parseInt(myArrayB['time']);
+            const department2 = myArrayB['department'];
 
-        const day = parseInt(myArrayA['day']);
-
-        const time = parseInt(myArrayA['time']);
-
-        const department = myArrayA['department'];
-
-        console.log('asdasdsad');
-
-        for(let k = i+1; k < data.length; k++) {
-
-            console.log('cacndscjsdv');
-
-            const myArrayB = data[k].split(",");
+            console.log(grade1, day1, time1, department1);
+            console.log(grade2, day2, time2, department2);
 
             // Sort by department, then year, then day, then start hour
-            if (department !== myArrayB['department']){
-                if(department.localeCompare(myArrayB['department'])){
-                    [data[i], data[k]] = [data[k], data[i]];
+            if (department1 !== department2){
+                if(department1.localeCompare(department2)){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
                 }
             }
-            if (grade !== parseInt(myArrayB['grade'])){
-                if(grade > parseInt(myArrayB['grade'])){
-                    [data[i], data[k]] = [data[k], data[i]];
+            else if (grade1 !== grade2){
+                if(grade1 > grade2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
                 }
             }
-            if (day !== parseInt(myArrayB['day'])){
-                if(day > parseInt(myArrayB['day'])){
-                    [data[i], data[k]] = [data[k], data[i]];
+            else if (day1 !== day2){
+                if(day1 > day2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
                 }
             }
-            if(time !== parseInt(myArrayB['time'])){
-                if(time > parseInt(myArrayB['time'])){
-                    [data[i], data[k]] = [data[k], data[i]];
+            else if(time1 !== time2){
+                if(time1 > time2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
                 }
             }; 
-
-            console.log('dnjdfdsvkjsv');
         }
     }
     
