@@ -7,6 +7,8 @@ import {
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
 
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
 const btn = document.getElementById("button1114");
 
 btn.addEventListener("click", function(){
@@ -121,15 +123,11 @@ export function swap(data, i, j) {
 
 export function sortTable(dataa){
 
-    console.log(dataa);
-
     var data = JSON.parse(dataa).slice(1);
-
-    console.log(data);
 
     for (let i = 1; i < data.length; i++) {
 
-        for(let k = 1; k < data.length-i; k++) {
+        for(let k = 0; k < data.length-i; k++) {
 
             const myArrayA = data[k];
             const grade1 = parseInt(myArrayA["grade"]);       //5
@@ -163,8 +161,13 @@ export function sortTable(dataa){
                 if(time1 > time2){
                     [data[k], data[k+1]] = [data[k+1], data[k]];
                 }
-            }; 
+            } 
         }
+    }
+
+    for(let i = 1; i < data.length; i++) {
+        data[i]["day"] = days[data[i]["day"]];
+        data[i]["time"] = (data[i]["time"] + 8) + ":30";
     }
     
     return data;
