@@ -128,18 +128,18 @@ export function sortTable(dataa){
         for(let k = 1; k < data.length-i; k++) {
 
             const myArrayA = data[k];
-            const grade1 = parseInt(myArrayA["department"]);       //5
-            const day1 = parseInt(myArrayA["grade"]);         //3
-            const time1 = parseInt(myArrayA["day"]);        //4    
-            const department1 = myArrayA["time"];            //6
+            const grade1 = parseInt(myArrayA["grade"]);       //5
+            const day1 = parseInt(myArrayA["day"]);         //3
+            const time1 = parseInt(myArrayA["time"]);        //4    
+            const department1 = myArrayA["department"];            //6
 
             console.log(grade1, day1, time1, department1);
 
             const myArrayB = data[k+1];
-            const grade2 = parseInt(myArrayB["department"]);
-            const day2 = parseInt(myArrayB["grade"]);
-            const time2 = parseInt(myArrayB["day"]);
-            const department2 = myArrayB["time"];
+            const grade2 = parseInt(myArrayB["grade"]);
+            const day2 = parseInt(myArrayB["day"]);
+            const time2 = parseInt(myArrayB["time"]);
+            const department2 = myArrayB["department"];
 
             console.log(grade2, day2, time2, department2);
 
