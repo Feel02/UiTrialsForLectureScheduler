@@ -119,11 +119,11 @@ export function swap(data, i, j) {
     data[j] = temp;
 }
 
-export function sortTable(data){
+export function sortTable(dataa){
 
-    console.log(data);
+    console.log(dataa);
 
-    Papa.unparse(JSON.parse(data));
+    var data = Papa.unparse(JSON.parse(dataa));
 
     for (let i = 5; i < data.length; i++) {
 
