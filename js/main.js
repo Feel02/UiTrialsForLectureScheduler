@@ -135,8 +135,8 @@ departments.forEach((dep, name) => {
 function convertCSVtoExcel() {
     var csvFileInput = Papa.unparse(JSON.parse(localStorage.getItem('tableData')));
 
-    if(csvFileInput != null && csvFileInput.files.length > 0) {
-      const csvFile = csvFileInput.files[0];
+    if(csvFileInput != null) {
+      const csvFile = csvFileInput;
 
       Papa.parse(csvFile, {
         complete: function(result) {
