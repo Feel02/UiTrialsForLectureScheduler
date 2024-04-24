@@ -9,7 +9,7 @@ import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundl
 const btn = document.getElementById("button1111");
 
 btn.addEventListener("click", function(){
-    console.log("clicked");
+    btn.style.display="none";
     var element = document.getElementById('tt');                  //tt for only the tables         
     element.classList.add('overflow-cell');  
 
@@ -35,7 +35,15 @@ btn.addEventListener("click", function(){
     }).save('filename1.pdf');*/
 
     html2pdf().set(opt).from(element).save();
+    btn.style.display="block";
+});
 
+const btn2 = document.getElementById("button1121");
+
+btn2.addEventListener("click", function(){
+    btn.style.display="none";
+    convertCSVtoExcel();
+    btn.style.display="block";
 });
 
 export function mergeTableCells(data) {
@@ -93,4 +101,85 @@ departments.forEach((dep, name) => {
     mergeTableCells(dep.data);
     renderTable(dep.data, name);
 });
+
+export function sortTable(dataa){
+
+    var data = JSON.parse(dataa).slice(1);
+
+    for (let i = 1; i < data.length; i++) {
+
+        for(let k = 0; k < data.length-i; k++) {
+
+            const myArrayA = data[k];
+            const grade1 = parseInt(myArrayA["grade"]);       //5
+            const day1 = parseInt(myArrayA["day"]);         //3
+            const time1 = parseInt(myArrayA["time"]);        //4    
+            const department1 = myArrayA["department"];            //6
+
+            const myArrayB = data[k+1];
+            const grade2 = parseInt(myArrayB["grade"]);
+            const day2 = parseInt(myArrayB["day"]);
+            const time2 = parseInt(myArrayB["time"]);
+            const department2 = myArrayB["department"];
+
+            // Sort by department, then year, then day, then start hour
+            if (department1 !== department2){
+                if(department1 > department2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
+                }
+            }
+            else if (grade1 !== grade2){
+                if(grade1 > grade2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
+                }
+            }
+            else if (day1 !== day2){
+                if(day1 > day2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
+                }
+            }
+            else if(time1 !== time2){
+                if(time1 > time2){
+                    [data[k], data[k+1]] = [data[k+1], data[k]];
+                }
+            } 
+        }
+    }
+
+    for(let i = 0; i < data.length; i++) {
+        data[i]["day"] = days[data[i]["day"]];
+
+        var totalMinutes = parseInt(data[i]["time"]) + 510;
+
+        var hours = Math.floor(totalMinutes / 60);          
+        var minutes = totalMinutes % 60;
+        data[i]["time"] = ""+hours+":"+minutes+"";
+    }
+    
+    return data;
+
+}
+
+function convertCSVtoExcel() {
+    var hold = localStorage.getItem('rawData');
+    var hold2 = sortTable(hold);
+    var csvFile = Papa.unparse(hold2);
+
+    if(csvFile != null) {
+      Papa.parse(csvFile, {
+        complete: function(result) {
+          const worksheet = XLSX.utils.json_to_sheet(result.data);
+          const workbook = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet 1');
+
+          // SAVE THE WORKBOOK AS AN EXCEL FILE
+          XLSX.writeFile(workbook, 'output.xlsx');
+        },
+        header: true
+      });
+
+    } else {
+      alert('Please select a CSV File.');
+    }
+  }
 

@@ -12,7 +12,7 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const btn = document.getElementById("button1114");
 
 btn.addEventListener("click", function(){
-    console.log("clicked");
+    btn.style.display="none";
     var element = document.getElementById('body3');                  //tt for only the tables           
 
     var opt = {
@@ -37,32 +37,15 @@ btn.addEventListener("click", function(){
     }).save('filename1.pdf');*/
 
     html2pdf().set(opt).from(element).save();
-
+    btn.style.display="block";
 });
 
 const btn2 = document.getElementById("button1124");
 
 btn2.addEventListener("click", function(){
-    console.log("clicked");
-    /*
-    var wb = XLSX.utils.book_new();
-
-    const departmentss = new Map(JSON.parse(localStorage.getItem('tableData')));
-    departmentss.forEach((dep, name) => {
-        sortTable(dep.data,wb);  
-    });
-
-    
-    // Convert the workbook to an Excel file (blob)
-    var wbBlob = XLSX.write(wb, { type: 'blob', bookType: 'xlsx' });
-
-     // Save the Excel file using FileSaver
-    saveAs(wbBlob, 'output.xlsx');
-
-    FileSaver.saveAs(wbBlob, 'output.xlsx'); */
-    
+    btn.style.display="none";
     convertCSVtoExcel();
-
+    btn.style.display="block";
 });
 
 export function mergeTableCells(data) {
@@ -113,12 +96,6 @@ export function renderTable(tableData, department) {
     let table = TableTemplate.replace("r$Body", body);
     table = table.replace("r$Department", department);
     document.getElementById("tt").innerHTML += table;
-}
-
-export function swap(data, i, j) {
-    let temp = data[i];
-    data[i] = data[j];
-    data[j] = temp;
 }
 
 export function sortTable(dataa){
