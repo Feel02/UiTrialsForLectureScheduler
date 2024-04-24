@@ -128,12 +128,14 @@ export function sortTable(data){
         for(let k = 1; k < data.length-i; k++) {
 
             const myArrayA = new Map(JSON.parse(data[k]));
+            console.log(myArrayA);
             const grade1 = parseInt(myArrayA['grade']);
             const day1 = parseInt(myArrayA['day']);
             const time1 = parseInt(myArrayA['time']);
             const department1 = myArrayA['department'];
 
             const myArrayB = new Map(JSON.parse(data[k+1]));
+            console.log(myArrayB);
             const grade2 = parseInt(myArrayB['grade']);
             const day2 = parseInt(myArrayB['day']);
             const time2 = parseInt(myArrayB['time']);
