@@ -121,7 +121,11 @@ export function swap(data, i, j) {
 
 export function sortTable(dataa){
 
+    console.log(dataa);
+
     var data = JSON.parse(dataa);
+
+    console.log(data);
 
     for (let i = 1; i < data.length; i++) {
 
