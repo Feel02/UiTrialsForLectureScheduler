@@ -137,19 +137,15 @@ export function sortTable(dataa){
             const time1 = parseInt(myArrayA["time"]);        //4    
             const department1 = myArrayA["department"];            //6
 
-            console.log(grade1, day1, time1, department1);
-
             const myArrayB = data[k+1];
             const grade2 = parseInt(myArrayB["grade"]);
             const day2 = parseInt(myArrayB["day"]);
             const time2 = parseInt(myArrayB["time"]);
             const department2 = myArrayB["department"];
 
-            console.log(grade2, day2, time2, department2);
-
             // Sort by department, then year, then day, then start hour
             if (department1 !== department2){
-                if(department1.localeCompare(department2)){
+                if(department1 > department2){
                     [data[k], data[k+1]] = [data[k+1], data[k]];
                 }
             }
