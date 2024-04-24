@@ -10,11 +10,14 @@ import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 const btn = document.getElementById("button1114");
+const btn2 = document.getElementById("button1124");
 
 btn.addEventListener("click", function(){
     btn.style.visibility="hidden";
-    var element = document.getElementById('tt');                  //tt for only the tables           
+    btn2.style.visibility="hidden";
+    var element = document.getElementById('body3');                  //tt for only the tables           
     btn.style.visibility="hidden";
+    btn2.style.visibility="hidden";
 
     var opt = {
         margin:       1,
@@ -39,9 +42,8 @@ btn.addEventListener("click", function(){
 
     html2pdf().set(opt).from(element).save();
     btn.style.display="visible";
+    btn2.style.visibility="visible";
 });
-
-const btn2 = document.getElementById("button1124");
 
 btn2.addEventListener("click", function(){
     btn.style.visibility="hidden";

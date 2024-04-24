@@ -7,11 +7,14 @@ import {
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 
 const btn = document.getElementById("button1111");
+const btn2 = document.getElementById("button1121");
 
 btn.addEventListener("click", function(){
     btn.style.visibility="hidden";
+    btn2.style.visibility="hidden";
     var element = document.getElementById('tt');                  //tt for only the tables
-    btn.style.visibility="hidden";         
+    btn.style.visibility="hidden";
+    btn2.style.visibility="hidden";         
     element.classList.add('overflow-cell');  
 
     var opt = {
@@ -37,9 +40,8 @@ btn.addEventListener("click", function(){
 
     html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
+    btn2.style.visibility="visible";
 });
-
-const btn2 = document.getElementById("button1121");
 
 btn2.addEventListener("click", function(){
     btn.style.visibility="hidden";
