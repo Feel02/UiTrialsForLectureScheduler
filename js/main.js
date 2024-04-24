@@ -113,15 +113,20 @@ export function renderTable(tableData, department) {
     document.getElementById("tt").innerHTML += table;
 }
 
-export function sortTable(data,wb){
+export function sortTable(data){
     data.sort(function (a, b) {
+
+        const myArrayA = a.split(",");
+        const myArrayB = b.split(",");
+
         // Sort by department, then year, then day, then start hour
-        if (parseInt(a[5]) !== parseInt(b[5])) return parseInt(a[5]) - parseInt(b[5]); // Compare year
-        if (parseInt(a[1]) !== parseInt(b[1])) return parseInt(a[1]) - parseInt(b[1]); // Compare day
-        return parseInt(a[2]) - parseInt(b[2]); // Compare start hour
+        if (myArrayA[6] !== myArrayB[6]) return myArrayA[6].localeCompare(myArrayB[6]); // Compare department
+        if (parseInt(myArrayA[5]) !== parseInt(myArrayB[5])) return parseInt(myArrayA[5]) - parseInt(myArrayB[5]); // Compare year
+        if (parseInt(myArrayA[3]) !== parseInt(myArrayB[3])) return parseInt(myArrayA[3]) - parseInt(myArrayB[3]); // Compare day
+        return parseInt(myArrayA[4]) - parseInt(myArrayB[4]); // Compare start hour
     });
     
-
+    return data;
 
 }
 
@@ -133,8 +138,8 @@ departments.forEach((dep, name) => {
 
 function convertCSVtoExcel() {
     var csvFile = Papa.unparse(JSON.parse(localStorage.getItem('rawData')).slice(1));
-
-    console.log(csvFile);
+    
+    csvFile = sortTable(csvFile);
 
     if(csvFile != null) {
       Papa.parse(csvFile, {
