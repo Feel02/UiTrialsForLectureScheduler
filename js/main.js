@@ -118,6 +118,9 @@ export function sortTable(data){
     console.log(data);
 
     for (let i = 1; i < data.length; i++) {
+
+        console.log('bvdahbsdvsbdv');
+
         const myArrayA = data[i].split(",");
 
         const grade = parseInt(myArrayA['grade']);
@@ -128,7 +131,12 @@ export function sortTable(data){
 
         const department = myArrayA['department'];
 
+        console.log('asdasdsad');
+
         for(let k = i+1; k < data.length; k++) {
+
+            console.log('cacndscjsdv');
+
             const myArrayB = data[k].split(",");
 
             // Sort by department, then year, then day, then start hour
@@ -152,6 +160,8 @@ export function sortTable(data){
                     [data[i], data[k]] = [data[k], data[i]];
                 }
             }; 
+
+            console.log('dnjdfdsvkjsv');
         }
     }
     
