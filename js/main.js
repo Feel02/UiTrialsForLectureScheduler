@@ -6,7 +6,7 @@ import {
 
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
-import "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.js";
+import "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js";
 
 const btn = document.getElementById("button1114");
 
@@ -43,6 +43,7 @@ const btn2 = document.getElementById("button1124");
 
 btn2.addEventListener("click", function(){
     console.log("clicked");
+    /*
     var wb = XLSX.utils.book_new();
 
     const departmentss = new Map(JSON.parse(localStorage.getItem('tableData')));
@@ -50,13 +51,16 @@ btn2.addEventListener("click", function(){
         sortTable(dep.data,wb);  
     });
 
+    
     // Convert the workbook to an Excel file (blob)
     var wbBlob = XLSX.write(wb, { type: 'blob', bookType: 'xlsx' });
 
-    // Save the Excel file using FileSaver
+     // Save the Excel file using FileSaver
     saveAs(wbBlob, 'output.xlsx');
 
-    FileSaver.saveAs(wbBlob, 'output.xlsx');
+    FileSaver.saveAs(wbBlob, 'output.xlsx'); */
+    
+    convertCSVtoExcel();
 
 });
 
@@ -128,4 +132,27 @@ departments.forEach((dep, name) => {
     mergeTableCells(dep.data);
     renderTable(dep.data, name);    
 });
+
+function convertCSVtoExcel() {
+    const csvFileInput = document.getElementById('file-in');
+
+    if(csvFileInput.files.length > 0) {
+      const csvFile = csvFileInput.files[0];
+
+      Papa.parse(csvFile, {
+        complete: function(result) {
+          const worksheet = XLSX.utils.json_to_sheet(result.data);
+          const workbook = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet 1');
+
+          // SAVE THE WORKBOOK AS AN EXCEL FILE
+          XLSX.writeFile(workbook, 'output.xlsx');
+        },
+        header: true
+      });
+
+    } else {
+      alert('Please select a CSV File.');
+    }
+  }
 
