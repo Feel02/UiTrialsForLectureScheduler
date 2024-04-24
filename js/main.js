@@ -121,7 +121,7 @@ export function swap(data, i, j) {
 
 export function sortTable(dataa){
 
-    var data = Papa.unparse(JSON.parse(dataa));
+    var data = JSON.parse(dataa);
 
     console.log(data);
 
