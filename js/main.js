@@ -183,7 +183,7 @@ departments.forEach((dep, name) => {
 });
 
 function convertCSVtoExcel() {
-    var hold = localStorage.getItem('rawData').slice(3, -1);
+    var hold = localStorage.getItem('rawData');
     var hold2 = sortTable(hold);
     var csvFile = hold2;
 
