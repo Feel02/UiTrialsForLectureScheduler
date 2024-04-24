@@ -165,7 +165,7 @@ export function sortTable(dataa){
         }
     }
 
-    for(let i = 1; i < data.length; i++) {
+    for(let i = 0; i < data.length; i++) {
         data[i]["day"] = days[data[i]["day"]];
 
         var totalMinutes = parseInt(data[i]["time"]) + 510;
