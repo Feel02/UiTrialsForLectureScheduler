@@ -167,7 +167,12 @@ export function sortTable(dataa){
 
     for(let i = 1; i < data.length; i++) {
         data[i]["day"] = days[data[i]["day"]];
-        data[i]["time"] = (data[i]["time"] + 8) + ":30";
+
+        var totalMinutes = parseInt(data[i]["time"]) + 510;
+
+        var hours = Math.floor(totalMinutes / 60);          
+        var minutes = totalMinutes % 60;
+        data[i]["time"] = ""+hours+":"+minutes+"";
     }
     
     return data;
