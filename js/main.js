@@ -123,15 +123,11 @@ export function sortTable(dataa){
 
     var data = JSON.parse(dataa);
 
-    console.log(data);
+    for (let i = 1; i < data.length; i++) {
 
-    for (let i = 5; i < data.length; i++) {
-
-        for(let k = 5; k < data.length-i; k++) {
+        for(let k = 1; k < data.length-i; k++) {
 
             const myArrayA = data[k];
-            console.log(myArrayA);
-            console.log('asdasd:' + myArrayA.split(',')[1]);
             const grade1 = parseInt(myArrayA["department"]);       //5
             const day1 = parseInt(myArrayA["grade"]);         //3
             const time1 = parseInt(myArrayA["day"]);        //4    
@@ -139,12 +135,11 @@ export function sortTable(dataa){
 
             console.log(grade1, day1, time1, department1);
 
-            const myArrayB = data[k+1].split(',').split(':')[1];
-            console.log(myArrayB);
-            const grade2 = parseInt(myArrayB[5]);
-            const day2 = parseInt(myArrayB[3]);
-            const time2 = parseInt(myArrayB[4]);
-            const department2 = myArrayB[6];
+            const myArrayB = data[k+1];
+            const grade2 = parseInt(myArrayB["department"]);
+            const day2 = parseInt(myArrayB["grade"]);
+            const time2 = parseInt(myArrayB["day"]);
+            const department2 = myArrayB["time"];
 
             console.log(grade2, day2, time2, department2);
 
