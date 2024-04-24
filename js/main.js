@@ -118,28 +118,37 @@ export function sortTable(data){
     console.log(data);
 
     for (let i = 1; i < data.length; i++) {
-        for(let k = i; k < data.length; k++) {
-            const myArrayA = data[i].split(",");
+        const myArrayA = data[i].split(",");
+
+        const grade = parseInt(myArrayA['grade']);
+
+        const day = parseInt(myArrayA['day']);
+
+        const time = parseInt(myArrayA['time']);
+
+        const department = myArrayA['department'];
+
+        for(let k = i+1; k < data.length; k++) {
             const myArrayB = data[k].split(",");
 
             // Sort by department, then year, then day, then start hour
-            if (myArrayA[6] !== myArrayB[6]){
-                if(myArrayA[6].localeCompare(myArrayB[6])){
+            if (department !== myArrayB['department']){
+                if(department.localeCompare(myArrayB['department'])){
                     [data[i], data[k]] = [data[k], data[i]];
                 }
             }
-            if (parseInt(myArrayA[5]) !== parseInt(myArrayB[5])){
-                if(parseInt(myArrayA[5]) > parseInt(myArrayB[5])){
+            if (grade !== parseInt(myArrayB['grade'])){
+                if(grade > parseInt(myArrayB['grade'])){
                     [data[i], data[k]] = [data[k], data[i]];
                 }
             }
-            if (parseInt(myArrayA[3]) !== parseInt(myArrayB[3])){
-                if(parseInt(myArrayA[3]) > parseInt(myArrayB[3])){
+            if (day !== parseInt(myArrayB['day'])){
+                if(day > parseInt(myArrayB['day'])){
                     [data[i], data[k]] = [data[k], data[i]];
                 }
             }
-            if(parseInt(myArrayA[4]) !== parseInt(myArrayB[4])){
-                if(parseInt(myArrayA[4]) > parseInt(myArrayB[4])){
+            if(time !== parseInt(myArrayB['time'])){
+                if(time > parseInt(myArrayB['time'])){
                     [data[i], data[k]] = [data[k], data[i]];
                 }
             }; 
