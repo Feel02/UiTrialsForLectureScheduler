@@ -123,7 +123,7 @@ export function sortTable(dataa){
 
     console.log(dataa);
 
-    var data = JSON.parse(dataa);
+    var data = JSON.parse(dataa).slice(1);
 
     console.log(data);
 
@@ -182,7 +182,7 @@ departments.forEach((dep, name) => {
 });
 
 function convertCSVtoExcel() {
-    var hold = localStorage.getItem('rawData').split(1);
+    var hold = localStorage.getItem('rawData');
     var hold2 = sortTable(hold);
     var csvFile = Papa.unparse(hold2);
 
