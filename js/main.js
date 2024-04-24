@@ -13,7 +13,7 @@ const btn = document.getElementById("button1114");
 
 btn.addEventListener("click", function(){
     btn.style.visibility="hidden";
-    var element = document.getElementById('body3');                  //tt for only the tables           
+    var element = document.getElementById('tt');                  //tt for only the tables           
     btn.style.visibility="hidden";
 
     var opt = {
