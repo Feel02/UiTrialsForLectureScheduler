@@ -12,8 +12,9 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const btn = document.getElementById("button1114");
 
 btn.addEventListener("click", function(){
-    btn.style.display="none";
+    btn.style.visibility="hidden";
     var element = document.getElementById('body3');                  //tt for only the tables           
+    btn.style.visibility="hidden";
 
     var opt = {
         margin:       1,
@@ -37,15 +38,15 @@ btn.addEventListener("click", function(){
     }).save('filename1.pdf');*/
 
     html2pdf().set(opt).from(element).save();
-    btn.style.display="block";
+    btn.style.display="visible";
 });
 
 const btn2 = document.getElementById("button1124");
 
 btn2.addEventListener("click", function(){
-    btn.style.display="none";
+    btn.style.visibility="hidden";
     convertCSVtoExcel();
-    btn.style.display="block";
+    btn.style.visibility="visible";
 });
 
 export function mergeTableCells(data) {
