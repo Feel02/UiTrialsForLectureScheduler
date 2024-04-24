@@ -180,7 +180,7 @@ departments.forEach((dep, name) => {
 function convertCSVtoExcel() {
     var hold = localStorage.getItem('rawData');
     var hold2 = sortTable(hold);
-    var csvFile = hold2;
+    var csvFile = Papa.unparse(hold2);
 
     if(csvFile != null) {
       Papa.parse(csvFile, {
