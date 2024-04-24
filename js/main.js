@@ -123,16 +123,20 @@ export function sortTable(data){
 
     console.log(data);
 
+    var map = new Map(JSON.parse(data));
+
     for (let i = 1; i < data.length; i++) {
 
         for(let k = 1; k < data.length-i; k++) {
 
-            const myArrayA = data[k].split(',').split(':')[1];
+            const myArrayA = map[k];
             console.log(myArrayA);
-            const grade1 = parseInt(myArrayA[5]);
-            const day1 = parseInt(myArrayA[3]);
-            const time1 = parseInt(myArrayA[4]);
-            const department1 = myArrayA[6];
+            const grade1 = parseInt(myArrayA["department"]);       //5
+            const day1 = parseInt(myArrayA["grade"]);         //3
+            const time1 = parseInt(myArrayA["day"]);        //4    
+            const department1 = myArrayA["time"];            //6
+
+            console.log(grade1, day1, time1, department1);
 
             const myArrayB = data[k+1].split(',').split(':')[1];
             console.log(myArrayB);
@@ -141,7 +145,6 @@ export function sortTable(data){
             const time2 = parseInt(myArrayB[4]);
             const department2 = myArrayB[6];
 
-            console.log(grade1, day1, time1, department1);
             console.log(grade2, day2, time2, department2);
 
             // Sort by department, then year, then day, then start hour
