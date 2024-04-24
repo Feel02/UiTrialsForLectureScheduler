@@ -9,12 +9,16 @@ import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundl
 const btn = document.getElementById("button1111");
 const btn2 = document.getElementById("button1121");
 
-btn.addEventListener("click", function(){
+btn.addEventListener("click", async function(){
     btn.style.visibility="hidden";
     btn2.style.visibility="hidden";
+    btn.style.display="none";
+    btn2.style.display="none";
     var element = document.getElementById('body');                  //tt for only the tables
     btn.style.visibility="hidden";
-    btn2.style.visibility="hidden";         
+    btn2.style.visibility="hidden";
+    btn.style.display="none";
+    btn2.style.display="none";         
     element.classList.add('overflow-cell');  
 
     var opt = {
@@ -38,15 +42,15 @@ btn.addEventListener("click", function(){
         }
     }).save('filename1.pdf');*/
 
-    html2pdf().set(opt).from(element).save();
+    await html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
     btn2.style.visibility="visible";
+    btn.style.display="block";
+    btn2.style.display="block";
 });
 
 btn2.addEventListener("click", function(){
-    btn.style.visibility="hidden";
     convertCSVtoExcel();
-    btn.style.visibility="visible";
 });
 
 export function mergeTableCells(data) {
