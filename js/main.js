@@ -123,14 +123,13 @@ export function sortTable(data){
 
     console.log(data);
 
-    var map = new Map(JSON.parse(data));
-
     for (let i = 5; i < data.length; i++) {
 
         for(let k = 5; k < data.length-i; k++) {
 
-            const myArrayA = map[k];
+            const myArrayA = data[k];
             console.log(myArrayA);
+            console.log('asdasd:' + myArrayA.split(',')[1]);
             const grade1 = parseInt(myArrayA["department"]);       //5
             const day1 = parseInt(myArrayA["grade"]);         //3
             const time1 = parseInt(myArrayA["day"]);        //4    
