@@ -120,10 +120,9 @@ export function sortTable(data,wb){
         if (parseInt(a[1]) !== parseInt(b[1])) return parseInt(a[1]) - parseInt(b[1]); // Compare day
         return parseInt(a[2]) - parseInt(b[2]); // Compare start hour
     });
-    // Convert to Worksheet
-    var ws = XLSX.utils.aoa_to_sheet(data);
-    // Add the worksheet to the workbook
-    XLSX.utils.book_append_sheet(wb, ws, 'Courses');
+    
+
+
 }
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
@@ -133,7 +132,9 @@ departments.forEach((dep, name) => {
 });
 
 function convertCSVtoExcel() {
-    var csvFile = Papa.unparse(JSON.parse(localStorage.getItem('rawData')));
+    var csvFile = Papa.unparse(JSON.parse(localStorage.getItem('rawData')).slice(1));
+
+    console.log(csvFile);
 
     if(csvFile != null) {
       Papa.parse(csvFile, {
