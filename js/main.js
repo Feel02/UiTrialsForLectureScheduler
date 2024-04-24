@@ -114,17 +114,37 @@ export function renderTable(tableData, department) {
 }
 
 export function sortTable(data){
-    data.sort(function (a, b) {
 
-        const myArrayA = a.split(",");
-        const myArrayB = b.split(",");
+    console.log(data);
 
-        // Sort by department, then year, then day, then start hour
-        if (myArrayA[6] !== myArrayB[6]) return myArrayA[6].localeCompare(myArrayB[6]); // Compare department
-        if (parseInt(myArrayA[5]) !== parseInt(myArrayB[5])) return parseInt(myArrayA[5]) - parseInt(myArrayB[5]); // Compare year
-        if (parseInt(myArrayA[3]) !== parseInt(myArrayB[3])) return parseInt(myArrayA[3]) - parseInt(myArrayB[3]); // Compare day
-        return parseInt(myArrayA[4]) - parseInt(myArrayB[4]); // Compare start hour
-    });
+    for (let i = 1; i < data.length; i++) {
+        for(let k = i; k < data.length; k++) {
+            const myArrayA = data[i].split(",");
+            const myArrayB = data[k].split(",");
+
+            // Sort by department, then year, then day, then start hour
+            if (myArrayA[6] !== myArrayB[6]){
+                if(myArrayA[6].localeCompare(myArrayB[6])){
+                    [data[i], data[k]] = [data[k], data[i]];
+                }
+            }
+            if (parseInt(myArrayA[5]) !== parseInt(myArrayB[5])){
+                if(parseInt(myArrayA[5]) > parseInt(myArrayB[5])){
+                    [data[i], data[k]] = [data[k], data[i]];
+                }
+            }
+            if (parseInt(myArrayA[3]) !== parseInt(myArrayB[3])){
+                if(parseInt(myArrayA[3]) > parseInt(myArrayB[3])){
+                    [data[i], data[k]] = [data[k], data[i]];
+                }
+            }
+            if(parseInt(myArrayA[4]) !== parseInt(myArrayB[4])){
+                if(parseInt(myArrayA[4]) > parseInt(myArrayB[4])){
+                    [data[i], data[k]] = [data[k], data[i]];
+                }
+            }; 
+        }
+    }
     
     return data;
 
