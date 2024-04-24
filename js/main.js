@@ -182,7 +182,7 @@ departments.forEach((dep, name) => {
 });
 
 function convertCSVtoExcel() {
-    var hold = localStorage.getItem('rawData').slice(1);
+    var hold = localStorage.getItem('rawData').slice(5);
     var hold2 = sortTable(hold);
     var csvFile = Papa.unparse(JSON.parse(hold2));
 
