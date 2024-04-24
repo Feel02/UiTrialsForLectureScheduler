@@ -36,6 +36,7 @@ function event(e) {
         }
         console.log(departments.entries());
         localStorage.setItem("tableData", JSON.stringify(Array.from(departments.entries())));
+        localStorage.setItem("rawData", JSON.stringify(allCourses));
     };
 }
 
