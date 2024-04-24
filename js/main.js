@@ -7,7 +7,7 @@ import {
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
 
-days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 const btn = document.getElementById("button1114");
 
