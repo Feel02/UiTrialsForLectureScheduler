@@ -6,7 +6,7 @@ import {
 
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
-import "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js";
+import * as Papa from "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js";
 
 const btn = document.getElementById("button1114");
 
