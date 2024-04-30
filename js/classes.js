@@ -13,8 +13,8 @@ var rooms = [];
 var tempRooms = roomsLines.map(line => ({ roomId: line.split(',')[0], roomSize: line.split(',')[1]}));
 for(const room of tempRooms){                                                                                   //get the rooms from the file and split them accordingly
     rooms.push(room);                                                                                           //this for ensures that we're saving rooms to the global variable
-} */
-rooms.sort((a, b) => a.roomId > b.roomId);
+} 
+rooms.sort((a, b) => a.roomId > b.roomId); */
 
 btn.addEventListener("click", function(){
     console.log("clicked");
