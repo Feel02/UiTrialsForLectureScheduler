@@ -107,7 +107,8 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
 
             let rowHead = document.createElement("tr");
             let cellHead = document.createElement("th");
-            cellHead.appendChild(document.createTextNode(keys[z] + " - " + rooms.find(room => room.roomId === keys[z]).roomSize));
+            cellHead.appendChild(document.createTextNode(keys[z]));
+            //cellHead.appendChild(document.createTextNode(keys[z] + " - " + rooms.find(room => room.roomId === keys[z]).roomSize));
             rowHead.appendChild(cellHead);
             cellHead.colSpan = "5";
             rowHead.appendChild(cellHead);
