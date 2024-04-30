@@ -37,8 +37,7 @@ export function mergeTableCells(data, department) {
     for (let day = 0; day < 5; day++) {
         for (let slot = 0; slot < 9; slot++) {
             for (let grade = 0; grade < 4; grade++) {
-                const element = data[day][slot][grade];
-                console.log(element)    
+                const element = data[day][slot][grade];   
                 if(element.room in classes) {
                     classes[element.room].push({
                         name: element.name,
@@ -60,12 +59,15 @@ export function mergeTableCells(data, department) {
             }
         }
     }
-    console.log(classes)
+    //console.log(classes)
 }
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 
 Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.data, name))).then(() => {
+
+    console.log(classes);
+
     let keys = Object.keys(classes);
     keys.sort();
 
