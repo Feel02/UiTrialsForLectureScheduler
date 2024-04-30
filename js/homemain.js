@@ -27,6 +27,7 @@ function event(e) {
                 departments.set(c.department, { data: createEmptyTableData() });
             }
             const dep = departments.get(c.department);
+            console.log(c);
             dep.data[c.day][c.time / 60][c.grade - 1] = {
                 span: c.duration / 60,
                 name: c.code,
@@ -34,7 +35,7 @@ function event(e) {
                 lecturer: c.lecturer,
             };
         }
-        console.log(departments.entries());
+        //console.log(departments.entries());
         localStorage.setItem("tableData", JSON.stringify(Array.from(departments.entries())));
         localStorage.setItem("rawData", JSON.stringify(allCourses));
     };
