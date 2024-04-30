@@ -1,3 +1,5 @@
+const fs = require('fs');
+const readline = require('readline');
 let classes = {};
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
