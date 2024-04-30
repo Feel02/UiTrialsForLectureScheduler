@@ -4,6 +4,16 @@ let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 const btn = document.getElementById("button1113");
 
+const roomsFilePath = 'Classroom_Capacities.csv';
+const roomsLines = await readFileLines(roomsFilePath);
+var rooms = [];
+
+var tempRooms = roomsLines.map(line => ({ roomId: line.split(',')[0], roomSize: line.split(',')[1]}));
+for(const room of tempRooms){                                                                                   //get the rooms from the file and split them accordingly
+    rooms.push(room);                                                                                           //this for ensures that we're saving rooms to the global variable
+}
+rooms.sort((a, b) => a.roomId > b.roomId);
+
 btn.addEventListener("click", function(){
     console.log("clicked");
     var element = document.getElementById('body3');                  //tt for only the tables           
@@ -32,6 +42,21 @@ btn.addEventListener("click", function(){
     html2pdf().set(opt).from(element).save();
 
 });
+
+async function readFileLines(filePath){                                                                             //########  Input csv function  ########
+    const fileStream = fs.createReadStream(filePath);
+    const rl = readline.createInterface({
+        input: fileStream,
+        crlfDelay: Infinity
+    });
+    const lines = [];
+
+    for await(const line of rl){
+        lines.push(line);                                                                                           //get every line and push it
+    }
+
+    return lines.slice(1);                                                                                          //delete the first like which has no data
+}
 
 export function mergeTableCells(data, department) {
     for (let day = 0; day < 5; day++) {
@@ -80,7 +105,7 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
 
             let rowHead = document.createElement("tr");
             let cellHead = document.createElement("th");
-            cellHead.appendChild(document.createTextNode(keys[z]));
+            cellHead.appendChild(document.createTextNode(keys[z] + " - " + rooms.find(room => room.roomId === keys[z]).roomSize));
             rowHead.appendChild(cellHead);
             cellHead.colSpan = "5";
             rowHead.appendChild(cellHead);
