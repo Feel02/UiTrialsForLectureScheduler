@@ -38,6 +38,7 @@ export function mergeTableCells(data, department) {
         for (let slot = 0; slot < 9; slot++) {
             for (let grade = 0; grade < 4; grade++) {
                 const element = data[day][slot][grade];
+                console.log(element)    
                 if(element.room in classes) {
                     classes[element.room].push({
                         name: element.name,
@@ -71,8 +72,7 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
     for (let z = 0; z < keys.length; z++) {
         if (keys[z] != "") {
 
-            console.log(keys[z] + " key");
-            console.log(classes[keys[z]]);
+            //console.log(keys[z]);              //sınıf adı
 
             let table = document.createElement("table");
             let head = document.createElement("thead");
