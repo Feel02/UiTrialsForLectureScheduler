@@ -64,9 +64,9 @@ export function mergeTableCells(data, department) {
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 
-Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.data, name))).then(() => {
+console.log(departments);
 
-    console.log(classes);
+Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.data, name))).then(() => {
 
     let keys = Object.keys(classes);
     keys.sort();
