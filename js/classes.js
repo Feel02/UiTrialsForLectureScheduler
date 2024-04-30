@@ -71,6 +71,9 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
     for (let z = 0; z < keys.length; z++) {
         if (keys[z] != "") {
 
+            console.log(keys[z] + " key");
+            console.log(classes[keys[z]]);
+
             let table = document.createElement("table");
             let head = document.createElement("thead");
             let body = document.createElement("tbody");
