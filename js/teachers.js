@@ -7,8 +7,7 @@ const btn = document.getElementById("button1112");
 btn.addEventListener("click", async function(){
     console.log("clicked");
     var element = document.getElementById('body2');                  //tt for only the tables
-    btn.style.visibility="hidden";
-    btn.style.display="none";          
+    btn.style.visibility="hidden";        
 
     var opt = {
         margin:       1,
@@ -33,7 +32,6 @@ btn.addEventListener("click", async function(){
 
     await html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
-    btn.style.display="block";
 });
 
 export function mergeTableCells(data, department) {

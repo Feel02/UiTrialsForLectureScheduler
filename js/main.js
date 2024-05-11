@@ -13,8 +13,6 @@ const btn = document.getElementById("button1114");
 const btn2 = document.getElementById("button1124");
 
 btn.addEventListener("click", async function(){
-    btn.style.visibility="hidden";
-    btn2.style.visibility="hidden";
     var element = document.getElementById('body4');                  //tt for only the tables           
     btn.style.visibility="hidden";
     btn2.style.visibility="hidden";

@@ -19,7 +19,6 @@ rooms.sort((a, b) => a.roomId > b.roomId); */
 btn.addEventListener("click", async function(){
     console.log("clicked");
     btn.style.visibility="hidden";
-    btn.style.display="none";
     var element = document.getElementById('body3');                  //tt for only the tables
     
 
@@ -46,7 +45,6 @@ btn.addEventListener("click", async function(){
 
     await html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
-    btn.style.display="block";
 });
 
 /* async function readFileLines(filePath){                                                                             //########  Input csv function  ########
