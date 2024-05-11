@@ -54,7 +54,7 @@ export function mergeTableCells(data, department) {
                     var hold2 = JSON.parse(hold).slice(1);
                     for(var k = 0; k < hold2.length; k++){
                         const myArrayA = hold2[k];
-                        console.log(myArrayA)
+                        
                     }
                     
                     const grade1 = parseInt(myArrayA["grade"]);       //5
@@ -66,7 +66,7 @@ export function mergeTableCells(data, department) {
                         room: data[day][slot][grade].room,
                         name: data[day][slot][grade].name,
                         day: days[day],
-                        time: (slot + 8) + ":30"
+                        time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     });
                 } else {
                     teachers[data[day][slot][grade].lecturer] = [];
@@ -75,7 +75,7 @@ export function mergeTableCells(data, department) {
                         room: data[day][slot][grade].room,
                         name: data[day][slot][grade].name,
                         day: days[day],
-                        time: (slot + 8) + ":30"
+                        time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     });
                 }
             }
