@@ -121,12 +121,6 @@ export function renderTable(tableData, department) {
     document.getElementById("tt").innerHTML += table;
 }
 
-const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
-departments.forEach((dep, name) => {
-    mergeTableCells(dep.data);
-    renderTable(dep.data, name);
-});
-
 export function sortTable(dataa){
 
     var data = JSON.parse(dataa).slice(1);
@@ -192,6 +186,11 @@ btn2.innerHTML = langCode == "TR" ? "Excel'e Dönüştür" : "Convert to Excel";
 var years = langCode == "EN" ? '<th colspan="5">1st Year</th><th colspan="5">2nd Year</th><th colspan="5">3rd Year</th><th colspan="5">4th Year</th>' : '<th colspan="5">1. Sınıf</th><th colspan="5">2. Sınıf</th><th colspan="5">3. Sınıf</th><th colspan="5">4. Sınıf</th>';
 document.getElementById('imgFlag').src = langCode == "EN" ? "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_Turkey.svg" : "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_the_United_Kingdom.svg";
 
+const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
+departments.forEach((dep, name) => {
+    mergeTableCells(dep.data);
+    renderTable(dep.data, name);
+});
 
 function convertCSVtoExcel() {
     var hold = localStorage.getItem('rawData');
