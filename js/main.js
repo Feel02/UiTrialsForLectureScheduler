@@ -183,6 +183,11 @@ document.getElementById("regularTable").innerHTML = langCode == "EN" ? "REGULAR 
 btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
 btn2.innerHTML = langCode == "TR" ? "Excel'e Dönüştür" : "Convert to Excel";
 
+TableTemplate = TableTemplate.replace("1st Year", langCode == "TR" ? "1. Sınıf" : "1st Year");
+TableTemplate = TableTemplate.replace("2nd Year", langCode == "TR" ? "2. Sınıf" : "2nd Year");
+TableTemplate = TableTemplate.replace("3rd Year", langCode == "TR" ? "3. Sınıf" : "3rd Year");
+TableTemplate = TableTemplate.replace("4th Year", langCode == "TR" ? "4. Sınıf" : "4th Year");
+
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 departments.forEach((dep, name) => {
     mergeTableCells(dep.data);
