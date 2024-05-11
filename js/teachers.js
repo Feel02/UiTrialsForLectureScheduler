@@ -1,5 +1,6 @@
 let teachers = {};
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+let daysTR = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"];
 
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 const btn = document.getElementById("button1112");
@@ -50,23 +51,11 @@ export function mergeTableCells(data, department) {
         for (let slot = 0; slot < 9; slot++) {
             for (let grade = 0; grade < 4; grade++) {
                 if (data[day][slot][grade].lecturer in teachers) {
-                    /* var hold = localStorage.getItem('rawData');
-                    var hold2 = JSON.parse(hold).slice(1);
-                    for(var k = 0; k < hold2.length; k++){
-                        const myArrayA = hold2[k];   
-                    }
-                    
-                    const grade1 = parseInt(myArrayA["grade"]);       //5
-                    const day1 = parseInt(myArrayA["day"]);         //3
-                    const time1 = parseInt(myArrayA["time"]);        //4    
-                    const department1 = myArrayA["department"];            //6 */
-
-
                     teachers[data[day][slot][grade].lecturer].push({
                         department: department,
                         room: data[day][slot][grade].room,
                         name: data[day][slot][grade].name,
-                        day: days[day],
+                        day: langCode == "TR" ? daysTR[day] : days[day],
                         time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     });
                 } else {
@@ -75,7 +64,7 @@ export function mergeTableCells(data, department) {
                         department: department,
                         room: data[day][slot][grade].room,
                         name: data[day][slot][grade].name,
-                        day: days[day],
+                        day: langCode == "TR" ? daysTR[day] : days[day],
                         time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     });
                 }
