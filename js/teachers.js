@@ -50,17 +50,18 @@ export function mergeTableCells(data, department) {
         for (let slot = 0; slot < 9; slot++) {
             for (let grade = 0; grade < 4; grade++) {
                 if (data[day][slot][grade].lecturer in teachers) {
-                    var hold = localStorage.getItem('rawData');
+                    /* var hold = localStorage.getItem('rawData');
                     var hold2 = JSON.parse(hold).slice(1);
                     for(var k = 0; k < hold2.length; k++){
-                        const myArrayA = hold2[k];
-                        
+                        const myArrayA = hold2[k];   
                     }
                     
                     const grade1 = parseInt(myArrayA["grade"]);       //5
                     const day1 = parseInt(myArrayA["day"]);         //3
                     const time1 = parseInt(myArrayA["time"]);        //4    
-                    const department1 = myArrayA["department"];            //6
+                    const department1 = myArrayA["department"];            //6 */
+
+
                     teachers[data[day][slot][grade].lecturer].push({
                         department: department,
                         room: data[day][slot][grade].room,
