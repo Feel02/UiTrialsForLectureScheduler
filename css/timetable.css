@@ -80,15 +80,21 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
 .imgFlag {
     width: 70px;
     height: 40px;
-    border-radius: 4%;
+    border-radius: 10%;
+    display: flex;
+    justify-content: right;
+    align-items: self-end;
 }
 
 .buttonFlag{
     width: 70px;
     height: 40px;
-    border-radius: 4%;
+    border-radius: 10%;
     border: none;
     cursor: pointer;
     appearance: none;
     background-color: inherit;
+    display: flex;
+    justify-content: right;
+    align-items: self-end;
 }
