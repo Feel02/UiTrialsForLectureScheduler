@@ -80,4 +80,11 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
 .imgFlag {
     width: 70px;
     height: 40px;
+    border-radius: 4%;
+}
+
+.buttonFlag{
+    width: 70px;
+    height: 40px;
+    border-radius: 4%;
 }
