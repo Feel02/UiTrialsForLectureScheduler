@@ -179,7 +179,7 @@ export function sortTable(dataa){
 }
 
 var langCode = localStorage.getItem('langCode');
-document.getElementById("aybu").innerHTML = langCode == "TR" ? "REGULAR TABLE" : "NORMAL TABLO";
+document.getElementsByClassName("aybu").innerHTML = langCode == "TR" ? "REGULAR TABLE" : "NORMAL TABLO";
 btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
 btn2.innerHTML = langCode == "TR" ? "Excel'e Dönüştür" : "Convert to Excel";
 
