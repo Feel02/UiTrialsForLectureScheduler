@@ -180,7 +180,6 @@ export function sortTable(dataa){
 
 var langCode = localStorage.getItem('langCode');
 document.getElementById("regularTable").innerHTML = langCode == "EN" ? "REGULAR TABLE" : "NORMAL TABLO";
-document.getElementsById("regularTable").textContent = langCode == "EN" ? "REGULAR TABLE" : "NORMAL TABLO";
 btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
 btn2.innerHTML = langCode == "TR" ? "Excel'e Dönüştür" : "Convert to Excel";
 
