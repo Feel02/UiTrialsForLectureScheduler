@@ -50,6 +50,7 @@ export function mergeTableCells(data, department) {
         for (let slot = 0; slot < 9; slot++) {
             for (let grade = 0; grade < 4; grade++) {
                 if (data[day][slot][grade].lecturer in teachers) {
+                    console.log(data[day][slot][grade]);
                     teachers[data[day][slot][grade].lecturer].push({
                         department: department,
                         room: data[day][slot][grade].room,
@@ -104,6 +105,7 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
             for (let data in teachers[keys[z]][0]) {
                 let cellBData = document.createElement("th");
                 let upper = data.toUpperCase();
+                console.log(upper)
                 cellBData.appendChild(document.createTextNode(upper));
                 cellB.appendChild(cellBData);
             }
