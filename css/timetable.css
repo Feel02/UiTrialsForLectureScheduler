@@ -66,13 +66,20 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
 }
 
 .button:hover {
-background-color: white; /* Green */
-color: #09c781;
-box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: white; /* Green */
+    color: #09c781;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .button-container {
-display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgFlag {
+    width: 70px;
+    height: 40px;
+    border-radius: 5%;
+    margin-left: auto;
 }

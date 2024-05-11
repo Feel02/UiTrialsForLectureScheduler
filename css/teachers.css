@@ -60,13 +60,13 @@ tr:nth-child(2n + 1) {
 }
 
 .button:hover {
-background-color: white; /* Green */
-color: #09c781;
-box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: white; /* Green */
+    color: #09c781;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .button-container {
-display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
