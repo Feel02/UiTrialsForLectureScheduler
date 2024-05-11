@@ -1,6 +1,29 @@
 langCode = localStorage.getItem('langCode') == null ? 'EN' : localStorage.getItem('langCode');
 localStorage.setItem('langCode', langCode);
 
+const languageButton = document.getElementById("languageButton");
+
+document.getElementById("aybu").innerHTML = langCode == "EN" ? "AYBU EXAM SCHEDULE" : "AYBU SINAV PROGRAMI";
+document.getElementById("file-in").innerHTML = langCode == "EN" ? "Choose file" : "Dosya seç";
+document.getElementById("regularTable").innerHTML = langCode == "EN" ? "Regular Table" : "Normal Tablo";
+document.getElementById("withProf").innerHTML = langCode == "EN" ? "With Professor Names" : "Profesör isimleriyle beraber";
+document.getElementById("onlyProf").innerHTML = langCode == "EN" ? "Professor's Timetables" : "Profesörlerin Programları";
+document.getElementById("classes").innerHTML = langCode == "EN" ? "Classes' Timetable" : "Sınıfların Programları";
+document.getElementById("docInp").innerHTML = langCode == "EN" ? "Click to browse" : "Tıklayarak dosya seçin";
+
+document.getElementById('imgFlag').src = langCode == "EN" ? "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_Turkey.svg" : "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_the_United_Kingdom.svg";
+
+
+languageButton.addEventListener("click", function(){
+    if(langCode == "TR"){
+        localStorage.setItem('langCode', 'EN');
+    }
+    else{
+        localStorage.setItem('langCode', 'TR');
+    }
+    location.reload();
+});
+
 export function createEmptyTableData() {
     const courses = [];
     for (let day = 0; day < 5; day++) {
