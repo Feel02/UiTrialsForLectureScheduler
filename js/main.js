@@ -11,6 +11,8 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 const btn = document.getElementById("button1114");
 const btn2 = document.getElementById("button1124");
+const languageButton = document.getElementById("languageButton");
+
 
 btn.addEventListener("click", async function(){
     var element = document.getElementById('body4');                  //tt for only the tables           
@@ -47,6 +49,16 @@ btn2.addEventListener("click", function(){
     convertCSVtoExcel();
 });
 
+languageButton.addEventListener("click", function(){
+    if(langCode == "TR"){
+        localStorage.setItem('langCode', 'EN');
+    }
+    else{
+        localStorage.setItem('langCode', 'TR');
+    }
+    location.reload();
+});
+
 export function mergeTableCells(data) {
     for (let day = 0; day < 5; day++) {
         for (let slot = 0; slot < 9; slot++) {
@@ -67,13 +79,24 @@ export function mergeTableCells(data) {
 }
 
 export function renderTable(tableData, department) {
-    const days = [
-        DayTemplate.replace("r$Day", "Monday"),
-        DayTemplate.replace("r$Day", "Tuesday"),
-        DayTemplate.replace("r$Day", "Wednesday"),
-        DayTemplate.replace("r$Day", "Thursday"),
-        DayTemplate.replace("r$Day", "Friday"),
-    ];
+    if(langCode == "TR"){
+        days = [
+            DayTemplate.replace("r$Day", "Pazartesi"),
+            DayTemplate.replace("r$Day", "Salı"),
+            DayTemplate.replace("r$Day", "Çarşamba"),
+            DayTemplate.replace("r$Day", "Perşembe"),
+            DayTemplate.replace("r$Day", "Cuma"),
+        ];
+    }
+    else{
+        days = [
+            DayTemplate.replace("r$Day", "Monday"),
+            DayTemplate.replace("r$Day", "Tuesday"),
+            DayTemplate.replace("r$Day", "Wednesday"),
+            DayTemplate.replace("r$Day", "Thursday"),
+            DayTemplate.replace("r$Day", "Friday"),
+        ];
+    }
     for (let d = 0; d < days.length; d++) {
         for (let s = 0; s < 9; s++) {
             let row = "";
@@ -154,6 +177,11 @@ export function sortTable(dataa){
     return data;
 
 }
+
+var langCode = localStorage.getItem('langCode');
+document.getElementById("aybu").innerHTML = langCode == "TR" ? "REGULAR TABLE" : "NORMAL TABLO";
+btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
+btn2.innerHTML = langCode == "TR" ? "Excel'e Dönüştür" : "Convert to Excel";
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 departments.forEach((dep, name) => {

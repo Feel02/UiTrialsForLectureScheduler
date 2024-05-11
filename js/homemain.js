@@ -1,3 +1,6 @@
+langCode = localStorage.getItem('langCode') == null ? 'EN' : localStorage.getItem('langCode');
+localStorage.setItem('langCode', langCode);
+
 export function createEmptyTableData() {
     const courses = [];
     for (let day = 0; day < 5; day++) {
