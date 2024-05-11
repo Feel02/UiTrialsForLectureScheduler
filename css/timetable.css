@@ -62,6 +62,8 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
     font-size: 16px;
     border-radius: 8px;
     transition-duration: 0.4s;
+    margin-right: 20px;
+    justify-content: center;
   }
 
   .button:hover {
