@@ -81,9 +81,9 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
     width: 70px;
     height: 40px;
     border-radius: 10%;
-    display: flex;
-    justify-content: right;
-    align-items: self-end;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .buttonFlag{
@@ -94,7 +94,7 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
     cursor: pointer;
     appearance: none;
     background-color: inherit;
-    display: flex;
-    justify-content: right;
-    align-items: self-end;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
