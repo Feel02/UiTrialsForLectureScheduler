@@ -4,7 +4,7 @@ let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 const btn = document.getElementById("button1112");
 
-btn.addEventListener("click", function(){
+btn.addEventListener("click", async function(){
     console.log("clicked");
     btn.style.visibility="hidden";
     btn.style.display="none";
@@ -33,7 +33,7 @@ btn.addEventListener("click", function(){
         }
     }).save('filename1.pdf');*/
 
-    html2pdf().set(opt).from(element).save();
+    await html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
     btn.style.display="block";
 });

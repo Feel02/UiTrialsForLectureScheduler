@@ -16,7 +16,7 @@ for(const room of tempRooms){                                                   
 } 
 rooms.sort((a, b) => a.roomId > b.roomId); */
 
-btn.addEventListener("click", function(){
+btn.addEventListener("click", async function(){
     console.log("clicked");
     btn.style.visibility="hidden";
     btn.style.display="none";
@@ -45,7 +45,7 @@ btn.addEventListener("click", function(){
         }
     }).save('filename1.pdf');*/
 
-    html2pdf().set(opt).from(element).save();
+    await html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
     btn.style.display="block";
 });
