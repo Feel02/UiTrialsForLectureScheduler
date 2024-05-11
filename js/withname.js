@@ -7,10 +7,11 @@ import {
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js";
 
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 const btn = document.getElementById("button1111");
 const btn2 = document.getElementById("button1121");
+const languageButton = document.getElementById("languageButton");
 
 btn.addEventListener("click", async function(){
     btn.style.visibility="hidden";
@@ -48,6 +49,16 @@ btn2.addEventListener("click", function(){
     convertCSVtoExcel();
 });
 
+languageButton.addEventListener("click", function(){
+    if(langCode == "TR"){
+        localStorage.setItem('langCode', 'EN');
+    }
+    else{
+        localStorage.setItem('langCode', 'TR');
+    }
+    location.reload();
+});
+
 export function mergeTableCells(data) {
     for (let day = 0; day < 5; day++) {
         for (let slot = 0; slot < 9; slot++) {
@@ -67,13 +78,24 @@ export function mergeTableCells(data) {
 }
 
 export function renderTable(tableData, department) {
-    const days = [
-        DayTemplate.replace("r$Day", "Monday"),
-        DayTemplate.replace("r$Day", "Tuesday"),
-        DayTemplate.replace("r$Day", "Wednesday"),
-        DayTemplate.replace("r$Day", "Thursday"),
-        DayTemplate.replace("r$Day", "Friday"),
-    ];
+    if(langCode == "TR"){
+        days = [
+            DayTemplate.replace("r$Day", "Pazartesi"),
+            DayTemplate.replace("r$Day", "Salı"),
+            DayTemplate.replace("r$Day", "Çarşamba"),
+            DayTemplate.replace("r$Day", "Perşembe"),
+            DayTemplate.replace("r$Day", "Cuma"),
+        ];
+    }
+    else{
+        days = [
+            DayTemplate.replace("r$Day", "Monday"),
+            DayTemplate.replace("r$Day", "Tuesday"),
+            DayTemplate.replace("r$Day", "Wednesday"),
+            DayTemplate.replace("r$Day", "Thursday"),
+            DayTemplate.replace("r$Day", "Friday"),
+        ];
+    }
     for (let d = 0; d < days.length; d++) {
         for (let s = 0; s < 9; s++) {
             let row = "";
@@ -95,6 +117,7 @@ export function renderTable(tableData, department) {
     const body = days.join("\n");
     let table = TableTemplate.replace("r$Body", body);
     table = table.replace("r$Department", department);
+    table = table.replace("r$Years", years);
     document.getElementById("tt").innerHTML += table;
 }
 
@@ -162,6 +185,14 @@ export function sortTable(dataa){
 
 }
 
+var langCode = localStorage.getItem('langCode');
+document.getElementById("withProf").innerHTML = langCode == "EN" ? "With Professor Names" : "Profesör İsimleriyle Beraber";
+btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
+btn2.innerHTML = langCode == "TR" ? "Excel'e Dönüştür" : "Convert to Excel";
+var years = langCode == "EN" ? '<th colspan="5">1st Year</th><th colspan="5">2nd Year</th><th colspan="5">3rd Year</th><th colspan="5">4th Year</th>' : '<th colspan="5">1. Sınıf</th><th colspan="5">2. Sınıf</th><th colspan="5">3. Sınıf</th><th colspan="5">4. Sınıf</th>';
+document.getElementById('imgFlag').src = langCode == "EN" ? "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_Turkey.svg" : "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_the_United_Kingdom.svg";
+
+
 function convertCSVtoExcel() {
     var hold = localStorage.getItem('rawData');
     var hold2 = sortTable(hold);
@@ -181,7 +212,7 @@ function convertCSVtoExcel() {
       });
 
     } else {
-      alert('Please select a CSV File.');
-    }
+        alert(langCode == "TR" ? "Excel'e dönüştürme işlemi başarısız oldu." : "Failed to convert to Excel.");
+      }
   }
 

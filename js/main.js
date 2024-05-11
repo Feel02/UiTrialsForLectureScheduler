@@ -13,7 +13,6 @@ const btn = document.getElementById("button1114");
 const btn2 = document.getElementById("button1124");
 const languageButton = document.getElementById("languageButton");
 
-
 btn.addEventListener("click", async function(){
     var element = document.getElementById('body4');                  //tt for only the tables           
     btn.style.visibility="hidden";
@@ -212,7 +211,7 @@ function convertCSVtoExcel() {
       });
 
     } else {
-      alert('Please select a CSV File.');
+      alert(langCode == "TR" ? "Excel'e dönüştürme işlemi başarısız oldu." : "Failed to convert to Excel.");
     }
   }
 
