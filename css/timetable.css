@@ -81,5 +81,5 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
     width: 70px;
     height: 40px;
     border-radius: 5%;
-    margin-left: auto;
+    margin-left: 90%;
 }
