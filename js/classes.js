@@ -21,8 +21,7 @@ btn.addEventListener("click", async function(){
     btn.style.visibility="hidden";
     btn.style.display="none";
     var element = document.getElementById('body3');                  //tt for only the tables
-    btn.style.visibility="hidden";
-    btn.style.display="none";
+    
 
     var opt = {
         margin:       1,
