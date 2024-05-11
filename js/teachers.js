@@ -3,6 +3,7 @@ let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 const btn = document.getElementById("button1112");
+const languageButton = document.getElementById("languageButton");
 
 btn.addEventListener("click", async function(){
     console.log("clicked");
@@ -34,6 +35,16 @@ btn.addEventListener("click", async function(){
     btn.style.visibility="visible";
 });
 
+languageButton.addEventListener("click", function(){
+    if(langCode == "TR"){
+        localStorage.setItem('langCode', 'EN');
+    }
+    else{
+        localStorage.setItem('langCode', 'TR');
+    }
+    location.reload();
+});
+
 export function mergeTableCells(data, department) {
     for (let day = 0; day < 5; day++) {
         for (let slot = 0; slot < 9; slot++) {
@@ -60,6 +71,12 @@ export function mergeTableCells(data, department) {
         }
     }
 }
+
+var langCode = localStorage.getItem('langCode');
+document.getElementById("onlyProf").innerHTML = langCode == "EN" ? "Professor's Timetables" : "Profesörlerin Programları";
+btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
+document.getElementById('imgFlag').src = langCode == "EN" ? "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_Turkey.svg" : "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_the_United_Kingdom.svg";
+
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 
