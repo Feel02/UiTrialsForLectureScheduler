@@ -50,3 +50,22 @@ tbody > tr:nth-child(n + 37) > .overflow-cell{
 .overflow-cell {
     overflow: visible;
 }
+
+.button {
+    background-color: #09c781; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    background-color: white; /* Green */
+    color: #09c781;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
