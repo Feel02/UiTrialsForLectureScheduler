@@ -1,4 +1,4 @@
-export const DayTemplate = `<tr>
+export var DayTemplate = `<tr>
 <th
     rowspan="9"
     colspan="1"
@@ -43,11 +43,11 @@ r$slot-8
 </tr>
 `;
 
-export const SlotTemplate = `<td colspan="3" rowspan="r$Span">r$CourseName</td>
+export var SlotTemplate = `<td colspan="3" rowspan="r$Span">r$CourseName</td>
 <td colspan="2" rowspan="r$Span">r$Classroom</td>
 `;
 
-export const TableTemplate = `<table border="1px solid black">
+export var TableTemplate = `<table border="1px solid black">
 <caption border="1px solid black">
     r$Department
 </caption>
