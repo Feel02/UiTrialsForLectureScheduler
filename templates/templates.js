@@ -54,10 +54,7 @@ export var TableTemplate = `<table border="1px solid black">
 <thead>
     <tr>
         <th colspan="3"></th>
-        <th colspan="5">1st Year</th>
-        <th colspan="5">2nd Year</th>
-        <th colspan="5">3rd Year</th>
-        <th colspan="5">4th Year</th>
+        r$Years
     </tr>
 </thead>
 <tbody>
