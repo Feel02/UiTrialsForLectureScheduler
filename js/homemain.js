@@ -1,4 +1,4 @@
-langCode = localStorage.getItem('langCode') == null ? 'EN' : localStorage.getItem('langCode');
+var langCode = localStorage.getItem('langCode') == null ? 'EN' : localStorage.getItem('langCode');
 localStorage.setItem('langCode', langCode);
 
 const languageButton = document.getElementById("languageButton");
