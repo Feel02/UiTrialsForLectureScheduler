@@ -50,7 +50,17 @@ export function mergeTableCells(data, department) {
         for (let slot = 0; slot < 9; slot++) {
             for (let grade = 0; grade < 4; grade++) {
                 if (data[day][slot][grade].lecturer in teachers) {
-                    console.log(data[day][slot][grade]);
+                    var hold = localStorage.getItem('rawData');
+                    var hold2 = JSON.parse(hold).slice(1);
+                    for(var k = 0; k < hold2.length; k++){
+                        const myArrayA = hold2[k];
+                        console.log(myArrayA)
+                    }
+                    
+                    const grade1 = parseInt(myArrayA["grade"]);       //5
+                    const day1 = parseInt(myArrayA["day"]);         //3
+                    const time1 = parseInt(myArrayA["time"]);        //4    
+                    const department1 = myArrayA["department"];            //6
                     teachers[data[day][slot][grade].lecturer].push({
                         department: department,
                         room: data[day][slot][grade].room,
@@ -105,7 +115,13 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
             for (let data in teachers[keys[z]][0]) {
                 let cellBData = document.createElement("th");
                 let upper = data.toUpperCase();
-                console.log(upper)
+                if(langCode == "TR"){
+                    upper = upper.replace("DAY", "GÜN");
+                    upper = upper.replace("TIME", "SAAT");
+                    upper = upper.replace("ROOM", "SINIF");
+                    upper = upper.replace("DEPARTMENT", "BÖLÜM");
+                    upper = upper.replace("NAME", "DERS");
+                }
                 cellBData.appendChild(document.createTextNode(upper));
                 cellB.appendChild(cellBData);
             }
