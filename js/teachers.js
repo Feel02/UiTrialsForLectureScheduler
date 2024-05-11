@@ -6,9 +6,9 @@ const btn = document.getElementById("button1112");
 
 btn.addEventListener("click", function(){
     console.log("clicked");
+    var element = document.getElementById('body2');                  //tt for only the tables
     btn.style.visibility="hidden";
-    btn.style.display="none";
-    var element = document.getElementById('body2');                  //tt for only the tables          
+    btn.style.display="none";          
 
     var opt = {
         margin:       1,
