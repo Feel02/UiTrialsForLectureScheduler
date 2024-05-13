@@ -146,33 +146,18 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
                 body.appendChild(cell);
             }
 
+            //get the size of the room
+            //console.log(rooms.find(room => room.roomId === keys[z]).roomSize);
+
+            body.children[0].children[0].innerHTML += " - " + rooms.find(room => room.roomId === keys[z]).roomSize;
+
+
+
             table.appendChild(head);
             table.appendChild(body);
             document.body.appendChild(table);
         }
     }
 });
-
-//get back the datas from body, and change the sorting of each class' timetable based on day and time instead of departments
-const tabless = document.getElementsByTagName("table");
-for (let i = 0; i < tabless.length; i++) {
-    const table = tabless[i];
-    const rows = table.getElementsByTagName("tr");
-    const dataRows = Array.from(rows).slice(1); // Exclude the header row
-    const sortedRows = dataRows.sort((row1, row2) => {
-        const day1 = row1.cells[3].textContent;
-        const time1 = row1.cells[4].textContent;
-        const day2 = row2.cells[3].textContent;
-        const time2 = row2.cells[4].textContent;
-        if (day1 === day2) {
-            return time1.localeCompare(time2);
-        } else {
-            return days.indexOf(day1) - days.indexOf(day2);
-        }
-    });
-    for (let j = 0; j < sortedRows.length; j++) {
-        table.tBodies[0].appendChild(sortedRows[j]);
-    }
-}
 
 
