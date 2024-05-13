@@ -154,13 +154,13 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
                 var day = body.rows[i].cells[3].innerHTML;       //day
                 var dayIndex = langCode == "TR" ? daysTR.indexOf(day) : days.indexOf(day);
                 var time = body.rows[i].cells[4].innerHTML;       //time
-                var timeStart = time.split(" - ")[0];
+                var timeStart = convertH2M(time.split(" - ")[0]);
                 //bubble sort based on the day and time and swap based on that
                 for(var j = 1; j < size - i; j++){
                     var day2 = body.rows[j].cells[3].innerHTML;       //day
                     var dayIndex2 = langCode == "TR" ? daysTR.indexOf(day2) : days.indexOf(day2);
                     var time2 = body.rows[j].cells[4].innerHTML;       //time
-                    var timeStart2 = time2.split(" - ")[0];
+                    var timeStart2 = convertH2M(time2.split(" - ")[0]);
                     if(dayIndex > dayIndex2 || (dayIndex == dayIndex2 && timeStart > timeStart2)){
                         var temp = body.rows[j].innerHTML;
                         body.rows[j].innerHTML = body.rows[j+1].innerHTML;
@@ -180,4 +180,7 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
     }
 });
 
-
+function convertH2M(timeInHour){
+    var timeParts = timeInHour.split(":");
+    return Number(timeParts[0]) * 60 + Number(timeParts[1]);
+  }
