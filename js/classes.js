@@ -129,6 +129,7 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
                     upper = upper.replace("ROOM", "SINIF");
                     upper = upper.replace("DEPARTMENT", "BÖLÜM");
                     upper = upper.replace("NAME", "DERS");
+                    upper = upper.replace("LECTURER", "PROFESÖR");
                 }
                 cellBData.appendChild(document.createTextNode(upper));
                 cellB.appendChild(cellBData);
