@@ -151,10 +151,14 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
 
             console.log(body)
             console.log(body.children[0].children[0].innerHTML);
-            console.log(body.children[0].children[0].children[0].innerHTML);
+            var size = body.rows.length;
+            console.log(size);
+            console.log(body.children.length)   
+            for(var i = 1; i < size; i++){
+                console.log(body.rows[i].cells[0].innerHTML);
 
-
-            body.children[0].children[0].innerHTML += " - " + rooms.find(room => room.roomId === keys[z]).roomSize;
+            }
+            
 
 
 
