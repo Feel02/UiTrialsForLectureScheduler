@@ -3,7 +3,7 @@ localStorage.setItem('langCode', langCode);
 
 const languageButton = document.getElementById("languageButton");
 
-document.getElementById("aybu").innerHTML = langCode == "EN" ? "AYBU EXAM SCHEDULE" : "AYBU SINAV PROGRAMI";
+document.getElementById("aybu").innerHTML = langCode == "EN" ? "AYBU LECTURE SCHEDULE" : "AYBU DERS PROGRAMI";
 document.getElementById("file-in").innerHTML = langCode == "EN" ? "Choose file" : "Dosya seç";
 document.getElementById("regularTable").innerHTML = langCode == "EN" ? "Regular Table" : "Normal Tablo";
 document.getElementById("withProf").innerHTML = langCode == "EN" ? "With Professor Names" : "Profesör isimleriyle beraber";

@@ -2,9 +2,11 @@
 //const readline = require('readline');
 let classes = {};
 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+let daysTR = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"];
 
 import "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
 const btn = document.getElementById("button1113");
+const languageButton = document.getElementById("languageButton");
 
 /* const roomsFilePath = 'Classroom_Capacities.csv';
 const roomsLines = await readFileLines(roomsFilePath);
@@ -47,20 +49,15 @@ btn.addEventListener("click", async function(){
     btn.style.visibility="visible";
 });
 
-/* async function readFileLines(filePath){                                                                             //########  Input csv function  ########
-    const fileStream = fs.createReadStream(filePath);
-    const rl = readline.createInterface({
-        input: fileStream,
-        crlfDelay: Infinity
-    });
-    const lines = [];
-
-    for await(const line of rl){
-        lines.push(line);                                                                                           //get every line and push it
+languageButton.addEventListener("click", function(){
+    if(langCode == "TR"){
+        localStorage.setItem('langCode', 'EN');
     }
-
-    return lines.slice(1);                                                                                          //delete the first like which has no data
-} */
+    else{
+        localStorage.setItem('langCode', 'TR');
+    }
+    location.reload();
+});
 
 export function mergeTableCells(data, department) {
     for (let day = 0; day < 5; day++) {
@@ -72,8 +69,8 @@ export function mergeTableCells(data, department) {
                         name: element.name,
                         department: department,
                         lecturer: element.lecturer,
-                        day: days[day],
-                        time: (slot + 8) + ":30"
+                        day: langCode == "TR" ? daysTR[day] : days[day],
+                        time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     })
                 } else {
                     classes[element.room] = []
@@ -81,8 +78,8 @@ export function mergeTableCells(data, department) {
                         name: element.name,
                         department: department,
                         lecturer: element.lecturer,
-                        day: days[day],
-                        time: (slot + 8) + ":30"
+                        day: langCode == "TR" ? daysTR[day] : days[day],
+                        time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     })
                 }
             }
@@ -90,6 +87,11 @@ export function mergeTableCells(data, department) {
     }
     //console.log(classes)
 }
+
+var langCode = localStorage.getItem('langCode');
+document.getElementById("onlyProf").innerHTML = langCode == "EN" ? "Classes' Timetables" : "Sınıfların Programları";
+btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
+document.getElementById('imgFlag').src = langCode == "EN" ? "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_Turkey.svg" : "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_the_United_Kingdom.svg";
 
 const departments = new Map(JSON.parse(localStorage.getItem('tableData')));
 

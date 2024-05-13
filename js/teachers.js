@@ -58,7 +58,8 @@ export function mergeTableCells(data, department) {
                         day: langCode == "TR" ? daysTR[day] : days[day],
                         time: (slot + 8) + ":30" + " - " + (slot + 8 + data[day][slot][grade].span) + ":30"
                     });
-                } else {
+                } 
+                else {
                     teachers[data[day][slot][grade].lecturer] = [];
                     teachers[data[day][slot][grade].lecturer].push({
                         department: department,
