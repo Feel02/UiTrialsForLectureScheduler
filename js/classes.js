@@ -146,11 +146,23 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
                 body.appendChild(cell);
             }
 
-            console.log(table);
-            console.log("---------------------------------");
-            console.log(head);
-            console.log("---------------------------------");
-            console.log(body);
+            //bubble sorting the body based on the day and time
+            let swapped;
+            do {
+                swapped = false;
+                for (let i = 0; i < body.rows.length - 1; i++) {
+                    let row = body.rows[i];
+                    let nextRow = body.rows[i + 1];
+                    let day = langCode == "TR" ? daysTR.indexOf(row.cells[1].innerText) : days.indexOf(row.cells[1].innerText);
+                    let nextDay = langCode == "TR" ? daysTR.indexOf(nextRow.cells[1].innerText) : days.indexOf(nextRow.cells[1].innerText);
+                    let time = parseInt(row.cells[2].innerText.split(":")[0]);
+                    let nextTime = parseInt(nextRow.cells[2].innerText.split(":")[0]);
+                    if (day > nextDay || (day == nextDay && time > nextTime)) {
+                        row.parentNode.insertBefore(nextRow, row);
+                        swapped = true;
+                    }
+                }
+            } while (swapped);
 
             table.appendChild(head);
             table.appendChild(body);
