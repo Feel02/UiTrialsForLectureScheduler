@@ -170,9 +170,6 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
 
             }
             
-
-
-
             table.appendChild(head);
             table.appendChild(body);
             document.body.appendChild(table);

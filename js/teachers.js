@@ -128,6 +128,27 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
                 body.appendChild(cell);
             }
 
+            var size = body.rows.length;
+            for(var i = 1; i < size; i++){
+                for(var j = 1; j < size-i; j++){
+                    var day = body.rows[j].cells[3].innerHTML;       //day
+                    var dayIndex = langCode == "TR" ? daysTR.indexOf(day) : days.indexOf(day);
+                    var time = body.rows[j].cells[4].innerHTML;       //time
+                    var timeStart = convertH2M(time.split(" - ")[0]);
+
+                    var day2 = body.rows[j+1].cells[3].innerHTML;       //day
+                    var dayIndex2 = langCode == "TR" ? daysTR.indexOf(day2) : days.indexOf(day2);
+                    var time2 = body.rows[j+1].cells[4].innerHTML;       //time
+                    var timeStart2 = convertH2M(time2.split(" - ")[0]);
+                    if(dayIndex > dayIndex2 || (dayIndex == dayIndex2 && timeStart > timeStart2)){
+                        var temp = body.rows[j].innerHTML;
+                        body.rows[j].innerHTML = body.rows[j+1].innerHTML;
+                        body.rows[j+1].innerHTML = temp;
+                    }
+                }
+
+            }
+
             table.appendChild(head);
             table.appendChild(body);
             document.body.appendChild(table);
