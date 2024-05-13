@@ -89,7 +89,7 @@ export function mergeTableCells(data, department) {
 }
 
 var langCode = localStorage.getItem('langCode');
-document.getElementById("onlyProf").innerHTML = langCode == "EN" ? "Classes' Timetables" : "Sınıfların Programları";
+document.getElementById("onlyClasses").innerHTML = langCode == "EN" ? "Classes' Timetables" : "Sınıfların Programları";
 btn.innerHTML = langCode == "TR" ? "PDF Oluştur" : "Create PDF";
 document.getElementById('imgFlag').src = langCode == "EN" ? "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_Turkey.svg" : "https://flagemoji.com/wp-content/uploads/2020/02/Flag_of_the_United_Kingdom.svg";
 
