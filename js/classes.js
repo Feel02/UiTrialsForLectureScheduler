@@ -149,13 +149,24 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
             //get the size of the room
             //console.log(rooms.find(room => room.roomId === keys[z]).roomSize);
 
-            console.log(body)
-            console.log(body.children[0].children[0].innerHTML);
             var size = body.rows.length;
-            console.log(size);
-            console.log(body.children.length)   
             for(var i = 1; i < size; i++){
-                console.log(body.rows[i].cells[0].innerHTML);
+                var day = body.rows[i].cells[3].innerHTML;       //day
+                var dayIndex = langCode == "TR" ? daysTR.indexOf(day) : days.indexOf(day);
+                var time = body.rows[i].cells[4].innerHTML;       //time
+                var timeStart = time.split(" - ")[0];
+                //bubble sort based on the day and time and swap based on that
+                for(var j = 1; j < size - i; j++){
+                    var day2 = body.rows[j].cells[3].innerHTML;       //day
+                    var dayIndex2 = langCode == "TR" ? daysTR.indexOf(day2) : days.indexOf(day2);
+                    var time2 = body.rows[j].cells[4].innerHTML;       //time
+                    var timeStart2 = time2.split(" - ")[0];
+                    if(dayIndex > dayIndex2 || (dayIndex == dayIndex2 && timeStart > timeStart2)){
+                        var temp = body.rows[j].innerHTML;
+                        body.rows[j].innerHTML = body.rows[j+1].innerHTML;
+                        body.rows[j+1].innerHTML = temp;
+                    }
+                }
 
             }
             
