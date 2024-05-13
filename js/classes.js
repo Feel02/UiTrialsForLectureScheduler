@@ -149,6 +149,11 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
             //get the size of the room
             //console.log(rooms.find(room => room.roomId === keys[z]).roomSize);
 
+            console.log(body)
+            console.log(body.children[0].children[0].innerHTML);
+            console.log(body.children[0].children[0].children[0].innerHTML);
+
+
             body.children[0].children[0].innerHTML += " - " + rooms.find(room => room.roomId === keys[z]).roomSize;
 
 
