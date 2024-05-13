@@ -123,6 +123,13 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
             for (let data in classes[keys[z]][0]) {
                 let cellBData = document.createElement("th");
                 let upper = data.toUpperCase();
+                if(langCode == "TR"){
+                    upper = upper.replace("DAY", "GÜN");
+                    upper = upper.replace("TIME", "SAAT");
+                    upper = upper.replace("ROOM", "SINIF");
+                    upper = upper.replace("DEPARTMENT", "BÖLÜM");
+                    upper = upper.replace("NAME", "DERS");
+                }
                 cellBData.appendChild(document.createTextNode(upper));
                 cellB.appendChild(cellBData);
             }
