@@ -180,4 +180,4 @@ Promise.all([...departments.entries()].map(([name, deb]) => mergeTableCells(deb.
 function convertH2M(timeInHour){
     var timeParts = timeInHour.split(":");
     return Number(timeParts[0]) * 60 + Number(timeParts[1]);
-  }
+}
