@@ -22,7 +22,7 @@ btn.addEventListener("click", async function(){
         margin:       1,
         filename:     'regularTable.pdf',
         image:        { type: 'jpeg', quality: 0.99 },
-        html2canvas:  { scale:1, dpi:192},
+        html2canvas:  { scale:1.05, dpi:192},
         pagebreak: {mode: 'avoid-all'},
         jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
       };
