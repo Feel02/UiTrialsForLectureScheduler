@@ -11,26 +11,21 @@ table > caption {
     font-size: larger;
 }
 
-tbody > tr{
+tbody > tr > .overflow-cell{
     background-color: #eaf1dd;
-    overflow: visible;
 }
-tbody > tr:nth-child(n + 10){
+tbody > tr:nth-child(n + 10) > .overflow-cell{
     background-color: #e5dfec;
-    overflow-y: visible;
 }
-tbody > tr:nth-child(n + 19){
+tbody > tr:nth-child(n + 19) > .overflow-cell{
     background-color: #fde9d9;
-    overflow-x: visible;
 }
 
-tbody > tr:nth-child(n + 28){
+tbody > tr:nth-child(n + 28) > .overflow-cell{
     background-color: #dbe5f1;
-    overflow-y: scroll;
 }
-tbody > tr:nth-child(n + 37){
+tbody > tr:nth-child(n + 37) > .overflow-cell{
     background-color: #f2dbdb;
-    overflow-y: auto;
 }
 
 .header {
@@ -54,6 +49,7 @@ tbody > tr:nth-child(n + 37){
 
 .overflow-cell {
     overflow: visible;
+    display: inline-block;
 }
 
 .button {
