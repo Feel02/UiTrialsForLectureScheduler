@@ -11,21 +11,26 @@ table > caption {
     font-size: larger;
 }
 
-table tbody tr td.overflow-cell {
+tbody > tr{
     background-color: #eaf1dd;
+    overflow: visible;
 }
-table tbody tr:nth-child(n + 10) td.overflow-cell{
+tbody > tr:nth-child(n + 10){
     background-color: #e5dfec;
+    overflow-y: visible;
 }
-table tbody tr:nth-child(n + 19) td.overflow-cell{
+tbody > tr:nth-child(n + 19){
     background-color: #fde9d9;
+    overflow-x: visible;
 }
 
-table tbody tr:nth-child(n + 28) td.overflow-cell{
+tbody > tr:nth-child(n + 28){
     background-color: #dbe5f1;
+    overflow-y: scroll;
 }
-table tbody tr:nth-child(n + 37) td.overflow-cell{
+tbody > tr:nth-child(n + 37){
     background-color: #f2dbdb;
+    overflow-y: auto;
 }
 
 .header {
