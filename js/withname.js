@@ -20,10 +20,10 @@ btn.addEventListener("click", async function(){
     element.classList.add('overflow-cell');  
 
     var opt = {
-        margin:       1,
+        margin:       10,
         filename:     'regularTableWithLecturers.pdf',
         image:        { type: 'jpeg', quality: 0.99 },
-        html2canvas:  { scale:1, dpi:192},
+        html2canvas:  { scale:0.75, dpi:192},
         pagebreak: {mode: 'avoid-all'},
         jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
       };
