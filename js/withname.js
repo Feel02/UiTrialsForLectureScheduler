@@ -12,10 +12,13 @@ var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const btn = document.getElementById("button1111");
 const btn2 = document.getElementById("button1121");
 const languageButton = document.getElementById("languageButton");
+const header = document.getElementsByClassName("header");
 
 btn.addEventListener("click", async function(){
     btn.style.visibility="hidden";
     btn2.style.visibility="hidden";
+    header[0].style.visibility="hidden";
+
     var element = document.getElementById('body');                  //tt for only the tables       
     element.classList.add('overflow-cell');  
 
@@ -43,6 +46,7 @@ btn.addEventListener("click", async function(){
     await html2pdf().set(opt).from(element).save();
     btn.style.visibility="visible";
     btn2.style.visibility="visible";
+    header[0].style.visibility="visible";
 });
 
 btn2.addEventListener("click", function(){
