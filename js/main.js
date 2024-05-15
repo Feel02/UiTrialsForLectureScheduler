@@ -14,15 +14,15 @@ const btn2 = document.getElementById("button1124");
 const languageButton = document.getElementById("languageButton");
 
 btn.addEventListener("click", async function(){
-    var element = document.getElementById('body4');                  //tt for only the tables           
     btn.style.visibility="hidden";
     btn2.style.visibility="hidden";
+    var element = document.getElementById('body4');                  //tt for only the tables           
 
     var opt = {
         margin:       1,
         filename:     'regularTable.pdf',
         image:        { type: 'jpeg', quality: 0.99 },
-        html2canvas:  { scale:1.05, dpi:192},
+        html2canvas:  { scale:1, dpi:192},
         pagebreak: {mode: 'avoid-all'},
         jsPDF: {unit: 'mm', format: 'a2', orientation: 'l'},
       };
