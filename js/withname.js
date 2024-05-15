@@ -18,6 +18,7 @@ btn.addEventListener("click", async function(){
     btn.style.visibility="hidden";
     btn2.style.visibility="hidden";
     header[0].style.visibility="hidden";
+    header[0].style.display="none";
 
     var element = document.getElementById('body');                  //tt for only the tables       
     element.classList.add('overflow-cell');  
@@ -47,6 +48,7 @@ btn.addEventListener("click", async function(){
     btn.style.visibility="visible";
     btn2.style.visibility="visible";
     header[0].style.visibility="visible";
+    header[0].style.display="block";
 });
 
 btn2.addEventListener("click", function(){
