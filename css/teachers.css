@@ -35,7 +35,7 @@ tr:nth-child(2n + 1) {
 }
 
 .aybu {
-    background-color: #164840;
+    background-color: #66f2fc;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -46,7 +46,7 @@ tr:nth-child(2n + 1) {
 }
 
 .button {
-    background-color: #09c781; /* Green */
+    background-color: #66f2fc; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -61,7 +61,7 @@ tr:nth-child(2n + 1) {
 
 .button:hover {
     background-color: white; /* Green */
-    color: #09c781;
+    color: #05c0c0;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -91,4 +91,12 @@ tr:nth-child(2n + 1) {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+.imgLogo {
+    width: 170px;
+    height: 130px;
+    border-radius: 10%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }

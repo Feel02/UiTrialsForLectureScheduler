@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #faf6e0;
+    background-color: #ffffff;
 }
 
 .file-label {
@@ -14,7 +14,7 @@ body {
     font-size: 1.5rem;
     justify-content: center;
     align-items: center;
-    background-color: #97f8a2;
+    background-color: #66f2fc;
     border-radius: 20px;
     width: 40%;
     height: 50px;   
@@ -40,7 +40,7 @@ div {
 
 
 #aybu {
-    background-color: #164840;
+    background-color: #66f2fc;
     padding-top: 25px;
     text-align: center;
     border-radius: 20px;
@@ -54,7 +54,7 @@ div {
 }
 
 .main-nav {
-    background-color: #8ffbde;
+    background-color: #66f2fc;
     padding-top: 5px;
     height: 25px;
 }
@@ -76,7 +76,7 @@ div {
 }
 
 .main-nav a {
-    color: #b1a828;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -86,7 +86,7 @@ div {
 }
 
 .main-nav a:hover {
-    background-color: #97f8a2;
+    background-color: #05c0c0;
 }
 
 .imgFlag {
@@ -109,4 +109,12 @@ div {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+.imgLogo {
+    width: 170px;
+    height: 130px;
+    border-radius: 10%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
